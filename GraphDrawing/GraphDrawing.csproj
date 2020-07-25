@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,7 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Forms\AddMoreExpression.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Graph.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,12 +70,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Forms\AddMoreExpression.xaml.cs">
+      <DependentUpon>AddMoreExpression.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Graph.xaml.cs">
+      <DependentUpon>Graph.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Forms\GraphInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\GraphInfo.xaml.cs">
+      <DependentUpon>GraphInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +117,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\appgraph.ico" />
+    <Resource Include="Resources\copy.ico" />
+    <Resource Include="Resources\disk.ico" />
+    <Resource Include="Resources\down.ico" />
+    <Resource Include="Resources\grid.ico" />
+    <Resource Include="Resources\left.ico" />
+    <Resource Include="Resources\origin.ico" />
+    <Resource Include="Resources\polar.ico" />
+    <Resource Include="Resources\polarDown.ico" />
+    <Resource Include="Resources\polarup.ico" />
+    <Resource Include="Resources\range.ico" />
+    <Resource Include="Resources\rectangular.ico" />
+    <Resource Include="Resources\right.ico" />
+    <Resource Include="Resources\scale.ico" />
+    <Resource Include="Resources\text.ico" />
+    <Resource Include="Resources\up.ico" />
+    <Resource Include="Resources\VietGraph.ico" />
+    <Resource Include="Resources\ZoomIn X.ico" />
+    <Resource Include="Resources\Zoomin Y.ico" />
+    <Resource Include="Resources\Zoomin.ico" />
+    <Resource Include="Resources\ZoomOut X.ico" />
+    <Resource Include="Resources\ZoomOut Y.ico" />
+    <Resource Include="Resources\Zoomout.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
