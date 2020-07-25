@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,43 @@ namespace GraphDrawing
 	/// </summary>
 	public partial class Main : Window
 	{
+		private string[] oprArray = new string[] { "+", "-", "*", "/", "^", "(", ")" };
+
 		public Main()
 		{
 			InitializeComponent();
+			GenerateFuncMenu();
+			GenerateOprMenu();
+		}
+
+		private void GenerateOprMenu()
+		{
+			foreach (var opr in oprArray)
+			{
+				MenuItem item = new MenuItem();
+				item.Header = opr;
+				menuOprs.Items.Add(item);
+			}
+		}
+
+		private void GenerateFuncMenu()
+		{
+			foreach (var func in Enum.GetValues(typeof(EnumFuncs)))
+			{
+				MenuItem item = new MenuItem();
+				item.Header = Enum.GetName(typeof(EnumFuncs), func);
+				menuFuncs.Items.Add(item);
+			}
+		}
+
+		private void menuFuncs_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void menuOprs_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }

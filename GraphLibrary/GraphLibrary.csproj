@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="enumFuncs.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="ExpressionHelper.cs" />
     <Compile Include="IEvaluatable.cs" />
