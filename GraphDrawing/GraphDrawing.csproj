@@ -105,13 +105,13 @@
       <SubType>Designer</SubType>
       <DependentUpon>TacGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ThemBotBieuThuc.resx">
+    <EmbeddedResource Include="Forms\ThayDoiDoThi.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>ThemBotBieuThuc.cs</DependentUpon>
+      <DependentUpon>ThayDoiDoThi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ThongTinDoThi.resx">
+    <EmbeddedResource Include="Forms\BangGiaTri.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>ThongTinDoThi.cs</DependentUpon>
+      <DependentUpon>BangGiaTri.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -135,17 +135,17 @@
     <Compile Include="Forms\TacGia.Designer.cs">
       <DependentUpon>TacGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ThemBotBieuThuc.cs">
+    <Compile Include="Forms\ThayDoiDoThi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ThemBotBieuThuc.Designer.cs">
-      <DependentUpon>ThemBotBieuThuc.cs</DependentUpon>
+    <Compile Include="Forms\ThayDoiDoThi.Designer.cs">
+      <DependentUpon>ThayDoiDoThi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ThongTinDoThi.cs">
+    <Compile Include="Forms\BangGiaTri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ThongTinDoThi.Designer.cs">
-      <DependentUpon>ThongTinDoThi.cs</DependentUpon>
+    <Compile Include="Forms\BangGiaTri.Designer.cs">
+      <DependentUpon>BangGiaTri.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -28,10 +28,15 @@ namespace GraphDrawing
 
 		private void PopulateFuncsMenu()
 		{
-			foreach (var item in Enum.GetNames(typeof(EnumFuncs)))
+			foreach (string item in Enum.GetNames(typeof(EnumFuncs)))
 			{
 				hToolStripMenuItem.DropDownItems.Add(item);
 			}
+		}
+
+		private void hToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
+			txtExpression.Text += e.ClickedItem.Text + "(";
 		}
 
 		private void PopulateExps()
@@ -344,5 +349,6 @@ namespace GraphDrawing
 			txtExpression.Text += ")";
 		}
 		#endregion
+
 	}
 }

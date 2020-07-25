@@ -1,7 +1,7 @@
-﻿using System;
+﻿using GraphLibrary;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-
 
 namespace GraphDrawing
 {
@@ -16,24 +16,25 @@ namespace GraphDrawing
 		public void AddExpression(string text, Color color)
 		{
 			expPlotter.AddExpression(new Expression(text), color, true);
-			//lstExpressions.Items.Add(text);
-			//lstExpressions.SetItemChecked(lstExpressions.Items.IndexOf(text),true);
 		}
+
 		public void RemoveAllExpressions()
 		{
 			expPlotter.RemoveAllExpressions();
-			//lstExpressions.Items.Clear();
 		}
+
 		public void SetRange(double startX, double endX, double startY, double endY)
 		{
 			expPlotter.SetRangeX(startX, endX);
 			expPlotter.SetRangeY(startY, endY);
 		}
+
 		public void SetDivisions(int divX, int divY)
 		{
 			expPlotter.DivisionsX = divX;
 			expPlotter.DivisionsY = divY;
 		}
+
 		public void SetMode(GraphMode mode, int sensitivity)
 		{
 			expPlotter.GraphMode = mode;
@@ -43,6 +44,7 @@ namespace GraphDrawing
 				lblSensitivity.Text = "Polar sensitivity: " + expPlotter.PolarSensitivity;
 			}
 		}
+
 		public void SetPenWidth(int width)
 		{
 			expPlotter.PenWidth = width;
@@ -119,7 +121,6 @@ namespace GraphDrawing
 		private void Graph_Load(object sender, EventArgs e)
 		{
 			expPlotter.MouseMove += new MouseEventHandler(ExpPlotter_OnMouseMove);
-			//expPlotter.MouseWheel += new MouseEventHandler(ExpPlotter_OnMouseWheel);
 			lblSensitivity.Text = "";
 			if (ExpressionHelper.Cartesian == true)
 			{
@@ -132,15 +133,6 @@ namespace GraphDrawing
 				cartesianToolStripMenuItem.Checked = false;
 			}
 		}
-
-		//private void ExpPlotter_OnMouseWheel(object sender,MouseEventArgs e)
-		//{
-		//,if (e.Delta > 0)
-		//,,expPlotter.ZoomIn();
-		//,else if (e.Delta < 0)
-		//,,expPlotter.ZoomOut();
-		//,expPlotter.Refresh();
-		//}
 
 		private void ExpPlotter_OnMouseMove(object sender, MouseEventArgs e)
 		{
@@ -158,7 +150,6 @@ namespace GraphDrawing
 			currentY = Math.Round(currentY, 3);
 			lblPosition.Text = "Vị trí hiện tại của chuột: " + currentX + "," + currentY;
 		}
-
 
 		private void btnShowOrigin_Click(object sender, EventArgs e)
 		{

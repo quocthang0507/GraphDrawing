@@ -29,129 +29,135 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TacGia));
-			panel1 = new System.Windows.Forms.Panel();
-			label4 = new System.Windows.Forms.Label();
-			label1 = new System.Windows.Forms.Label();
-			panel2 = new System.Windows.Forms.Panel();
-			linkLabel1 = new System.Windows.Forms.LinkLabel();
-			label6 = new System.Windows.Forms.Label();
-			label10 = new System.Windows.Forms.Label();
-			label2 = new System.Windows.Forms.Label();
-			label3 = new System.Windows.Forms.Label();
-			panel1.SuspendLayout();
-			panel2.SuspendLayout();
-			SuspendLayout();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.panel1.SuspendLayout();
+			this.panel2.SuspendLayout();
+			this.SuspendLayout();
 			// 
 			// panel1
 			// 
-			panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			panel1.Controls.Add(label3);
-			panel1.Controls.Add(label2);
-			panel1.Controls.Add(label4);
-			panel1.Controls.Add(label1);
-			panel1.Location = new System.Drawing.Point(12, 12);
-			panel1.Name = "panel1";
-			panel1.Size = new System.Drawing.Size(431, 152);
-			panel1.TabIndex = 1;
-			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			label4.Location = new System.Drawing.Point(62, 39);
-			label4.Name = "label4";
-			label4.Size = new System.Drawing.Size(204, 16);
-			label4.TabIndex = 3;
-			label4.Text = "Email: phong_robin@yahoo.com";
-			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			label1.Location = new System.Drawing.Point(62, 14);
-			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(150, 16);
-			label1.TabIndex = 0;
-			label1.Text = "Tác giả: Lưu Văn Phong";
-			// 
-			// panel2
-			// 
-			panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			panel2.Controls.Add(linkLabel1);
-			panel2.Controls.Add(label6);
-			panel2.Controls.Add(label10);
-			panel2.Location = new System.Drawing.Point(12, 174);
-			panel2.Name = "panel2";
-			panel2.Size = new System.Drawing.Size(431, 107);
-			panel2.TabIndex = 2;
-			// 
-			// linkLabel1
-			// 
-			linkLabel1.AutoSize = true;
-			linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			linkLabel1.Location = new System.Drawing.Point(8, 75);
-			linkLabel1.Name = "linkLabel1";
-			linkLabel1.Size = new System.Drawing.Size(415, 16);
-			linkLabel1.TabIndex = 3;
-			linkLabel1.TabStop = true;
-			linkLabel1.Text = "http://www.codeproject.com/cs/miscctrl/ExpressionPlotterControl.asp";
-			linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(linkLabel1_LinkClicked);
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			label6.Location = new System.Drawing.Point(8, 48);
-			label6.Name = "label6";
-			label6.Size = new System.Drawing.Size(329, 16);
-			label6.TabIndex = 1;
-			label6.Text = "GraphPlotter của tác giả Syed Mehroz Alam tại địa chỉ:";
-			// 
-			// label10
-			// 
-			label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			label10.Location = new System.Drawing.Point(8, 8);
-			label10.Name = "label10";
-			label10.Size = new System.Drawing.Size(418, 39);
-			label10.TabIndex = 0;
-			label10.Text = "Phần mềm GraphDrawing có tham khảo và sử dụng mã nguồn phần mềm";
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			label2.Location = new System.Drawing.Point(62, 74);
-			label2.Name = "label2";
-			label2.Size = new System.Drawing.Size(201, 16);
-			label2.TabIndex = 0;
-			label2.Text = "Người chỉnh sửa: La Quốc Thắng";
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.label3);
+			this.panel1.Controls.Add(this.label2);
+			this.panel1.Controls.Add(this.label4);
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(489, 149);
+			this.panel1.TabIndex = 1;
 			// 
 			// label3
 			// 
-			label3.AutoSize = true;
-			label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point((byte)(0)));
-			label3.Location = new System.Drawing.Point(62, 99);
-			label3.Name = "label3";
-			label3.Size = new System.Drawing.Size(227, 16);
-			label3.TabIndex = 3;
-			label3.Text = "Email: quocthang_0507@yahoo.com";
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(83, 122);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(227, 16);
+			this.label3.TabIndex = 3;
+			this.label3.Text = "Email: quocthang_0507@yahoo.com";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(83, 91);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(201, 16);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Người chỉnh sửa: La Quốc Thắng";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(83, 48);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(204, 16);
+			this.label4.TabIndex = 3;
+			this.label4.Text = "Email: phong_robin@yahoo.com";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(83, 17);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(150, 16);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Tác giả: Lưu Văn Phong";
+			// 
+			// panel2
+			// 
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Controls.Add(this.linkLabel1);
+			this.panel2.Controls.Add(this.label6);
+			this.panel2.Controls.Add(this.label10);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel2.Location = new System.Drawing.Point(0, 152);
+			this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(489, 117);
+			this.panel2.TabIndex = 2;
+			// 
+			// linkLabel1
+			// 
+			this.linkLabel1.AutoSize = true;
+			this.linkLabel1.Location = new System.Drawing.Point(37, 76);
+			this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.linkLabel1.Name = "linkLabel1";
+			this.linkLabel1.Size = new System.Drawing.Size(415, 16);
+			this.linkLabel1.TabIndex = 3;
+			this.linkLabel1.TabStop = true;
+			this.linkLabel1.Text = "http://www.codeproject.com/cs/miscctrl/ExpressionPlotterControl.asp";
+			this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(11, 41);
+			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(329, 16);
+			this.label6.TabIndex = 1;
+			this.label6.Text = "GraphPlotter của tác giả Syed Mehroz Alam tại địa chỉ:";
+			// 
+			// label10
+			// 
+			this.label10.Location = new System.Drawing.Point(11, 10);
+			this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(557, 21);
+			this.label10.TabIndex = 0;
+			this.label10.Text = "Phần mềm GraphDrawing có tham khảo và sử dụng mã nguồn phần mềm";
 			// 
 			// TacGia
 			// 
-			AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			ClientSize = new System.Drawing.Size(456, 291);
-			Controls.Add(panel2);
-			Controls.Add(panel1);
-			Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-			MaximizeBox = false;
-			Name = "TacGia";
-			Text = "GraphDrawing Authors";
-			panel1.ResumeLayout(false);
-			panel1.PerformLayout();
-			panel2.ResumeLayout(false);
-			panel2.PerformLayout();
-			ResumeLayout(false);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(489, 269);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel1);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.MaximizeBox = false;
+			this.Name = "TacGia";
+			this.Text = "Thông tin chương trình";
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
+			this.ResumeLayout(false);
 
 		}
 

@@ -1,3 +1,4 @@
+using GraphLibrary;
 using System;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace GraphDrawing
 			InitializeComponent();
 		}
 
-		private void ThongTinDoThi_Load(object sender    EventArgs e)
+		private void ThongTinDoThi_Load(object sender, EventArgs e)
 		{
 			for (int i = 0; i < ExpressionHelper.ArrExpression.Count; i++)
 			{
@@ -21,14 +22,14 @@ namespace GraphDrawing
 			rbRadian.Checked = true;
 		}
 
-		private void btnDong_Click(object sender    EventArgs e)
+		private void btnDong_Click(object sender, EventArgs e)
 		{
 			rbDo.Checked = false;
 			rbRadian.Checked = true;
 			Close();
 		}
 
-		private void btnXem_Click(object sender    EventArgs e)
+		private void btnXem_Click(object sender, EventArgs e)
 		{
 			lvXAndFX.Items.Clear();
 			Expression expression = new Expression(cbBieuThuc.Text);
@@ -42,13 +43,13 @@ namespace GraphDrawing
 			}
 		}
 
-		private void rbDo_CheckedChanged(object sender    EventArgs e)
+		private void rbDo_CheckedChanged(object sender, EventArgs e)
 		{
 			ExpressionHelper.BlnDo = true;
 			ExpressionHelper.BlnRadian = false;
 		}
 
-		private void rbRadian_CheckedChanged(object sender    EventArgs e)
+		private void rbRadian_CheckedChanged(object sender, EventArgs e)
 		{
 			ExpressionHelper.BlnDo = false;
 			ExpressionHelper.BlnRadian = true;

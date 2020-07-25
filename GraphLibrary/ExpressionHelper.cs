@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace GraphLibrary
 {
-	internal class ExpressionHelper
+	public class ExpressionHelper
 	{
 		private static ArrayList _arrExpression = new ArrayList();
 		private static bool _cartesian = false;

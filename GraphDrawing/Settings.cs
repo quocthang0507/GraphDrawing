@@ -12,7 +12,7 @@ namespace GraphDrawing.Properties
 
 		public Settings()
 		{
-			// // To add event handlers for saving and changing settings    uncomment the lines below:
+			// // To add event handlers for saving and changing settings, uncomment the lines below:
 			//
 			// SettingChanging += SettingChangingEventHandler;
 			//

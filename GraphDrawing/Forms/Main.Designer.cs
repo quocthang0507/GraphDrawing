@@ -446,6 +446,7 @@
 			this.hToolStripMenuItem.Name = "hToolStripMenuItem";
 			this.hToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
 			this.hToolStripMenuItem.Text = "Chèn Hàm số";
+			this.hToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.hToolStripMenuItem_DropDownItemClicked);
 			// 
 			// toánTửToolStripMenuItem
 			// 

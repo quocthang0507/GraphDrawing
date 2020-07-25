@@ -1,3 +1,4 @@
+using GraphLibrary;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +10,6 @@ namespace GraphDrawing
 	public enum GraphMode
 	{ Rectangular, Polar };
 
-	//[ToolboxBitmap("graph.bmp")]
 	public partial class ExpressionPlotter : Control
 	{
 
@@ -517,6 +517,7 @@ namespace GraphDrawing
 			expVisible.RemoveAt(index);
 			return true;
 		}
+
 		public void RemoveExpressionAt(int index)
 		{
 			// can throw OutOfRangeException
@@ -524,6 +525,7 @@ namespace GraphDrawing
 			expColors.RemoveAt(index);
 			expVisible.RemoveAt(index);
 		}
+
 		public void RemoveAllExpressions()
 		{
 			expressions.Clear();
@@ -541,6 +543,7 @@ namespace GraphDrawing
 			// can throw OutOfRangeException
 			return expColors[index];
 		}
+
 		public bool GetExpressionVisibility(int index)
 		{
 			// can throw OutOfRangeException
@@ -552,11 +555,13 @@ namespace GraphDrawing
 			// can throw OutOfRangeException
 			expressions[index] = expression;
 		}
+
 		public void SetExpressionColor(int index, Color color)
 		{
 			// can throw OutOfRangeException
 			expColors[index] = color;
 		}
+
 		public void SetExpressionVisibility(int index, bool visibility)
 		{
 			// can throw OutOfRangeException
@@ -572,6 +577,7 @@ namespace GraphDrawing
 			dScaleX = (endX - startX) / 2;
 			dForwardX = (endX + startX) / 2;
 		}
+
 		public void SetRangeY(double startY, double endY)
 		{
 			dScaleY = (endY - startY) / 2;
@@ -623,14 +629,17 @@ namespace GraphDrawing
 		{
 			dForwardX -= divisions * dScaleX / iDivisionsX;
 		}
+
 		public void MoveRight(int divisions)
 		{
 			dForwardX += divisions * dScaleX / iDivisionsX;
 		}
+
 		public void MoveUp(int divisions)
 		{
 			dForwardY += divisions * dScaleY / iDivisionsY;
 		}
+
 		public void MoveDown(int divisions)
 		{
 			dForwardY -= divisions * dScaleY / iDivisionsY;
@@ -640,14 +649,17 @@ namespace GraphDrawing
 		{
 			dScaleX = DecreaseScale(dScaleX);
 		}
+
 		public void ZoomInY()
 		{
 			dScaleY = DecreaseScale(dScaleY);
 		}
+
 		public void ZoomOutX()
 		{
 			dScaleX = IncreaseScale(dScaleX);
 		}
+
 		public void ZoomOutY()
 		{
 			dScaleY = IncreaseScale(dScaleY);
@@ -658,12 +670,12 @@ namespace GraphDrawing
 			ZoomInX();
 			ZoomInY();
 		}
+
 		public void ZoomOut()
 		{
 			ZoomOutX();
 			ZoomOutY();
 		}
-
 		#endregion
 
 	}
