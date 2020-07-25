@@ -15,10 +15,14 @@ namespace GraphDrawing
 			Process.Start("http://www.codeproject.com/cs/miscctrl/ExpressionPlotterControl.asp");
 		}
 
-		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void label3_Click(object sender, System.EventArgs e)
 		{
-			Process.Start("http://360.yahoo.com/phong_robin");
+			Process.Start("mailto:quocthang_0507@yahoo.com.vn");
+		}
 
+		private void label4_Click(object sender, System.EventArgs e)
+		{
+			Process.Start("mailto:phong_robin@yahoo.com");
 		}
 	}
 }

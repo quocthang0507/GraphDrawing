@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace GraphDrawing
 {
-	public partial class Graph : Form
+	public partial class DoThi : Form
 	{
-		public Graph()
+		public DoThi()
 		{
 			InitializeComponent();
 		}
@@ -58,6 +58,7 @@ namespace GraphDrawing
 		{
 			return Math.Sqrt(X * X + Y * Y);
 		}
+
 		private double GetTheta(double X, double Y)
 		{
 			double dTheta;
@@ -415,13 +416,13 @@ namespace GraphDrawing
 
 		private void mniThemBotBieuThuc_Click(object sender, EventArgs e)
 		{
-			ThemBotBieuThuc frm = new ThemBotBieuThuc();
+			ThayDoiDoThi frm = new ThayDoiDoThi();
 			frm.ShowDialog();
 		}
 
 		private void mniThongTinDoThi_Click(object sender, EventArgs e)
 		{
-			ThongTinDoThi frm = new ThongTinDoThi();
+			BangGiaTri frm = new BangGiaTri();
 			frm.ShowDialog();
 		}
 

@@ -74,27 +74,27 @@
     <Compile Include="ExpressionPlotter.Designer.cs">
       <DependentUpon>ExpressionPlotter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main.cs">
+    <Compile Include="Forms\ThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Forms\ThongTin.Designer.cs">
+      <DependentUpon>ThongTin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Graph.cs">
+    <Compile Include="Forms\DoThi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Graph.Designer.cs">
-      <DependentUpon>Graph.cs</DependentUpon>
+    <Compile Include="Forms\DoThi.Designer.cs">
+      <DependentUpon>DoThi.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Main.resx">
+    <EmbeddedResource Include="Forms\ThongTin.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>Main.cs</DependentUpon>
+      <DependentUpon>ThongTin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Graph.resx">
+    <EmbeddedResource Include="Forms\DoThi.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>Graph.cs</DependentUpon>
+      <DependentUpon>DoThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,7 +128,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Settings.cs" />
     <Compile Include="Forms\TacGia.cs">
       <SubType>Form</SubType>
     </Compile>

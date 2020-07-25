@@ -1,6 +1,6 @@
 ﻿namespace GraphDrawing
 {
-	partial class ThemBotBieuThuc
+	partial class ThayDoiDoThi
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,67 +28,69 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemBotBieuThuc));
-			this.clbExpression = new System.Windows.Forms.CheckedListBox();
-			this.btnDongY = new System.Windows.Forms.Button();
-			this.btnXoa = new System.Windows.Forms.Button();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThayDoiDoThi));
+			this.clbExpressions = new System.Windows.Forms.CheckedListBox();
+			this.btnOK = new System.Windows.Forms.Button();
+			this.btnExit = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// clbExpression
+			// clbExpressions
 			// 
-			this.clbExpression.FormattingEnabled = true;
-			this.clbExpression.Location = new System.Drawing.Point(16, 15);
-			this.clbExpression.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.clbExpression.Name = "clbExpression";
-			this.clbExpression.Size = new System.Drawing.Size(277, 140);
-			this.clbExpression.TabIndex = 0;
-			this.clbExpression.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+			this.clbExpressions.FormattingEnabled = true;
+			this.clbExpressions.Location = new System.Drawing.Point(16, 15);
+			this.clbExpressions.Margin = new System.Windows.Forms.Padding(4);
+			this.clbExpressions.Name = "clbExpressions";
+			this.clbExpressions.Size = new System.Drawing.Size(277, 157);
+			this.clbExpressions.TabIndex = 0;
 			// 
-			// btnDongY
+			// btnOK
 			// 
-			this.btnDongY.Location = new System.Drawing.Point(303, 15);
-			this.btnDongY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.btnDongY.Name = "btnDongY";
-			this.btnDongY.Size = new System.Drawing.Size(100, 33);
-			this.btnDongY.TabIndex = 1;
-			this.btnDongY.Text = "Đồng ý";
-			this.btnDongY.UseVisualStyleBackColor = true;
-			this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
+			this.btnOK.Location = new System.Drawing.Point(303, 15);
+			this.btnOK.Margin = new System.Windows.Forms.Padding(4);
+			this.btnOK.Name = "btnOK";
+			this.btnOK.Size = new System.Drawing.Size(100, 33);
+			this.btnOK.TabIndex = 1;
+			this.btnOK.Text = "Đồng ý";
+			this.btnOK.UseVisualStyleBackColor = true;
+			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
 			// 
-			// btnXoa
+			// btnExit
 			// 
-			this.btnXoa.Location = new System.Drawing.Point(303, 55);
-			this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(100, 33);
-			this.btnXoa.TabIndex = 2;
-			this.btnXoa.Text = "Đóng";
-			this.btnXoa.UseVisualStyleBackColor = true;
-			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnExit.Location = new System.Drawing.Point(303, 55);
+			this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+			this.btnExit.Name = "btnExit";
+			this.btnExit.Size = new System.Drawing.Size(100, 33);
+			this.btnExit.TabIndex = 2;
+			this.btnExit.Text = "Đóng";
+			this.btnExit.UseVisualStyleBackColor = true;
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
-			// ThemBotBieuThuc
+			// ThayDoiDoThi
 			// 
+			this.AcceptButton = this.btnOK;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btnExit;
 			this.ClientSize = new System.Drawing.Size(417, 182);
-			this.Controls.Add(this.btnXoa);
-			this.Controls.Add(this.btnDongY);
-			this.Controls.Add(this.clbExpression);
+			this.Controls.Add(this.btnExit);
+			this.Controls.Add(this.btnOK);
+			this.Controls.Add(this.clbExpressions);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.Name = "ThemBotBieuThuc";
-			this.Text = "Thêm biểu thức";
-			this.Load += new System.EventHandler(this.ThemBotBieuThuc_Load);
+			this.Margin = new System.Windows.Forms.Padding(4);
+			this.Name = "ThayDoiDoThi";
+			this.Text = "Thay đổi đồ thị";
+			this.Load += new System.EventHandler(this.ThayDoiDoThi_Load);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.CheckedListBox clbExpression;
-		private System.Windows.Forms.Button btnDongY;
-		private System.Windows.Forms.Button btnXoa;
+		private System.Windows.Forms.CheckedListBox clbExpressions;
+		private System.Windows.Forms.Button btnOK;
+		private System.Windows.Forms.Button btnExit;
 	}
 }

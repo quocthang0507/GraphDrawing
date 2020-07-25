@@ -1,6 +1,6 @@
 ﻿namespace GraphDrawing
 {
-    partial class Main
+    partial class ThongTin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongTin));
 			this.lstExpressions = new System.Windows.Forms.ListBox();
 			this.txtExpression = new System.Windows.Forms.RichTextBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -36,42 +36,35 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnClear = new System.Windows.Forms.Button();
 			this.btnRemove = new System.Windows.Forms.Button();
-			this.cmdPlotGraph = new System.Windows.Forms.Button();
+			this.btnDraw = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
-			this.startX = new System.Windows.Forms.NumericUpDown();
-			this.endX = new System.Windows.Forms.NumericUpDown();
+			this.nudStartX = new System.Windows.Forms.NumericUpDown();
+			this.nudEndX = new System.Windows.Forms.NumericUpDown();
 			this.label4 = new System.Windows.Forms.Label();
-			this.endY = new System.Windows.Forms.NumericUpDown();
+			this.nudEndY = new System.Windows.Forms.NumericUpDown();
 			this.label5 = new System.Windows.Forms.Label();
-			this.startY = new System.Windows.Forms.NumericUpDown();
+			this.nudStartY = new System.Windows.Forms.NumericUpDown();
 			this.label6 = new System.Windows.Forms.Label();
-			this.divX = new System.Windows.Forms.NumericUpDown();
+			this.axisRatio = new System.Windows.Forms.NumericUpDown();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
-			this.sensitivity = new System.Windows.Forms.NumericUpDown();
-			this.mode = new System.Windows.Forms.ComboBox();
-			this.penWidth = new System.Windows.Forms.NumericUpDown();
+			this.nudSensitive = new System.Windows.Forms.NumericUpDown();
+			this.cbxMode = new System.Windows.Forms.ComboBox();
+			this.nudWidthStroke = new System.Windows.Forms.NumericUpDown();
 			this.label12 = new System.Windows.Forms.Label();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toánTửToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-			this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.MenuFuncs = new System.Windows.Forms.ToolStripMenuItem();
+			this.MenuOprs = new System.Windows.Forms.ToolStripMenuItem();
+			this.MenuInfo = new System.Windows.Forms.ToolStripMenuItem();
 			this.tácGiảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			((System.ComponentModel.ISupportInitialize)(this.startX)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.endX)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.endY)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.startY)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.divX)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.sensitivity)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.penWidth)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudStartX)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudEndX)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudEndY)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudStartY)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.axisRatio)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSensitive)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudWidthStroke)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -83,7 +76,7 @@
 			this.lstExpressions.Location = new System.Drawing.Point(17, 113);
 			this.lstExpressions.Margin = new System.Windows.Forms.Padding(4);
 			this.lstExpressions.Name = "lstExpressions";
-			this.lstExpressions.Size = new System.Drawing.Size(436, 116);
+			this.lstExpressions.Size = new System.Drawing.Size(447, 116);
 			this.lstExpressions.TabIndex = 3;
 			this.lstExpressions.SelectedIndexChanged += new System.EventHandler(this.lstExpressions_SelectedIndexChanged);
 			// 
@@ -92,6 +85,7 @@
 			this.txtExpression.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
 			this.txtExpression.Location = new System.Drawing.Point(17, 55);
 			this.txtExpression.Margin = new System.Windows.Forms.Padding(4);
+			this.txtExpression.MaxLength = 1000;
 			this.txtExpression.Multiline = false;
 			this.txtExpression.Name = "txtExpression";
 			this.txtExpression.Size = new System.Drawing.Size(345, 22);
@@ -112,7 +106,8 @@
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(372, 55);
+			this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btnAdd.Location = new System.Drawing.Point(372, 52);
 			this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(81, 27);
@@ -133,7 +128,8 @@
 			// 
 			// btnClear
 			// 
-			this.btnClear.Location = new System.Drawing.Point(263, 237);
+			this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnClear.Location = new System.Drawing.Point(248, 247);
 			this.btnClear.Margin = new System.Windows.Forms.Padding(4);
 			this.btnClear.Name = "btnClear";
 			this.btnClear.Size = new System.Drawing.Size(135, 27);
@@ -144,7 +140,8 @@
 			// 
 			// btnRemove
 			// 
-			this.btnRemove.Location = new System.Drawing.Point(67, 237);
+			this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnRemove.Location = new System.Drawing.Point(67, 247);
 			this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(166, 27);
@@ -153,16 +150,17 @@
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
 			// 
-			// cmdPlotGraph
+			// btnDraw
 			// 
-			this.cmdPlotGraph.Location = new System.Drawing.Point(190, 465);
-			this.cmdPlotGraph.Margin = new System.Windows.Forms.Padding(4);
-			this.cmdPlotGraph.Name = "cmdPlotGraph";
-			this.cmdPlotGraph.Size = new System.Drawing.Size(104, 27);
-			this.cmdPlotGraph.TabIndex = 14;
-			this.cmdPlotGraph.Text = "Vẽ đồ thị!";
-			this.cmdPlotGraph.UseVisualStyleBackColor = true;
-			this.cmdPlotGraph.Click += new System.EventHandler(this.cmdPlotGraph_Click);
+			this.btnDraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDraw.Location = new System.Drawing.Point(181, 465);
+			this.btnDraw.Margin = new System.Windows.Forms.Padding(4);
+			this.btnDraw.Name = "btnDraw";
+			this.btnDraw.Size = new System.Drawing.Size(104, 27);
+			this.btnDraw.TabIndex = 14;
+			this.btnDraw.Text = "Vẽ đồ thị!";
+			this.btnDraw.UseVisualStyleBackColor = true;
+			this.btnDraw.Click += new System.EventHandler(this.btnDraw_Click);
 			// 
 			// label3
 			// 
@@ -174,49 +172,49 @@
 			this.label3.TabIndex = 8;
 			this.label3.Text = "Điểm bắt đầu trục X";
 			// 
-			// startX
+			// nudStartX
 			// 
-			this.startX.DecimalPlaces = 2;
-			this.startX.Location = new System.Drawing.Point(161, 289);
-			this.startX.Margin = new System.Windows.Forms.Padding(4);
-			this.startX.Maximum = new decimal(new int[] {
+			this.nudStartX.DecimalPlaces = 2;
+			this.nudStartX.Location = new System.Drawing.Point(161, 294);
+			this.nudStartX.Margin = new System.Windows.Forms.Padding(4);
+			this.nudStartX.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-			this.startX.Minimum = new decimal(new int[] {
+			this.nudStartX.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             -2147483648});
-			this.startX.Name = "startX";
-			this.startX.Size = new System.Drawing.Size(81, 22);
-			this.startX.TabIndex = 6;
-			this.startX.Value = new decimal(new int[] {
+			this.nudStartX.Name = "nudStartX";
+			this.nudStartX.Size = new System.Drawing.Size(81, 22);
+			this.nudStartX.TabIndex = 6;
+			this.nudStartX.Value = new decimal(new int[] {
             8,
             0,
             0,
             -2147483648});
 			// 
-			// endX
+			// nudEndX
 			// 
-			this.endX.DecimalPlaces = 2;
-			this.endX.Location = new System.Drawing.Point(398, 288);
-			this.endX.Margin = new System.Windows.Forms.Padding(4);
-			this.endX.Maximum = new decimal(new int[] {
+			this.nudEndX.DecimalPlaces = 2;
+			this.nudEndX.Location = new System.Drawing.Point(386, 292);
+			this.nudEndX.Margin = new System.Windows.Forms.Padding(4);
+			this.nudEndX.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-			this.endX.Minimum = new decimal(new int[] {
+			this.nudEndX.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             -2147483648});
-			this.endX.Name = "endX";
-			this.endX.Size = new System.Drawing.Size(81, 22);
-			this.endX.TabIndex = 7;
-			this.endX.Value = new decimal(new int[] {
+			this.nudEndX.Name = "nudEndX";
+			this.nudEndX.Size = new System.Drawing.Size(81, 22);
+			this.nudEndX.TabIndex = 7;
+			this.nudEndX.Value = new decimal(new int[] {
             8,
             0,
             0,
@@ -232,25 +230,25 @@
 			this.label4.TabIndex = 11;
 			this.label4.Text = "Điểm kết thúc trục X";
 			// 
-			// endY
+			// nudEndY
 			// 
-			this.endY.DecimalPlaces = 2;
-			this.endY.Location = new System.Drawing.Point(398, 319);
-			this.endY.Margin = new System.Windows.Forms.Padding(4);
-			this.endY.Maximum = new decimal(new int[] {
+			this.nudEndY.DecimalPlaces = 2;
+			this.nudEndY.Location = new System.Drawing.Point(386, 323);
+			this.nudEndY.Margin = new System.Windows.Forms.Padding(4);
+			this.nudEndY.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-			this.endY.Minimum = new decimal(new int[] {
+			this.nudEndY.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             -2147483648});
-			this.endY.Name = "endY";
-			this.endY.Size = new System.Drawing.Size(81, 22);
-			this.endY.TabIndex = 9;
-			this.endY.Value = new decimal(new int[] {
+			this.nudEndY.Name = "nudEndY";
+			this.nudEndY.Size = new System.Drawing.Size(81, 22);
+			this.nudEndY.TabIndex = 9;
+			this.nudEndY.Value = new decimal(new int[] {
             8,
             0,
             0,
@@ -266,25 +264,25 @@
 			this.label5.TabIndex = 15;
 			this.label5.Text = "Điểm kết thúc trục Y";
 			// 
-			// startY
+			// nudStartY
 			// 
-			this.startY.DecimalPlaces = 2;
-			this.startY.Location = new System.Drawing.Point(161, 320);
-			this.startY.Margin = new System.Windows.Forms.Padding(4);
-			this.startY.Maximum = new decimal(new int[] {
+			this.nudStartY.DecimalPlaces = 2;
+			this.nudStartY.Location = new System.Drawing.Point(161, 325);
+			this.nudStartY.Margin = new System.Windows.Forms.Padding(4);
+			this.nudStartY.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-			this.startY.Minimum = new decimal(new int[] {
+			this.nudStartY.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             -2147483648});
-			this.startY.Name = "startY";
-			this.startY.Size = new System.Drawing.Size(81, 22);
-			this.startY.TabIndex = 8;
-			this.startY.Value = new decimal(new int[] {
+			this.nudStartY.Name = "nudStartY";
+			this.nudStartY.Size = new System.Drawing.Size(81, 22);
+			this.nudStartY.TabIndex = 8;
+			this.nudStartY.Value = new decimal(new int[] {
             8,
             0,
             0,
@@ -300,24 +298,24 @@
 			this.label6.TabIndex = 13;
 			this.label6.Text = "Điểm bắt đầu trục Y";
 			// 
-			// divX
+			// axisRatio
 			// 
-			this.divX.Location = new System.Drawing.Point(161, 350);
-			this.divX.Margin = new System.Windows.Forms.Padding(4);
-			this.divX.Maximum = new decimal(new int[] {
+			this.axisRatio.Location = new System.Drawing.Point(161, 355);
+			this.axisRatio.Margin = new System.Windows.Forms.Padding(4);
+			this.axisRatio.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-			this.divX.Minimum = new decimal(new int[] {
+			this.axisRatio.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
-			this.divX.Name = "divX";
-			this.divX.Size = new System.Drawing.Size(81, 22);
-			this.divX.TabIndex = 10;
-			this.divX.Value = new decimal(new int[] {
+			this.axisRatio.Name = "axisRatio";
+			this.axisRatio.Size = new System.Drawing.Size(81, 22);
+			this.axisRatio.TabIndex = 10;
+			this.axisRatio.Value = new decimal(new int[] {
             8,
             0,
             0,
@@ -353,67 +351,67 @@
 			this.label10.TabIndex = 22;
 			this.label10.Text = "Chế độ đồ thị";
 			// 
-			// sensitivity
+			// nudSensitive
 			// 
-			this.sensitivity.Enabled = false;
-			this.sensitivity.Increment = new decimal(new int[] {
+			this.nudSensitive.Enabled = false;
+			this.nudSensitive.Increment = new decimal(new int[] {
             50,
             0,
             0,
             0});
-			this.sensitivity.Location = new System.Drawing.Point(161, 380);
-			this.sensitivity.Margin = new System.Windows.Forms.Padding(4);
-			this.sensitivity.Maximum = new decimal(new int[] {
+			this.nudSensitive.Location = new System.Drawing.Point(161, 385);
+			this.nudSensitive.Margin = new System.Windows.Forms.Padding(4);
+			this.nudSensitive.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-			this.sensitivity.Minimum = new decimal(new int[] {
+			this.nudSensitive.Minimum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-			this.sensitivity.Name = "sensitivity";
-			this.sensitivity.Size = new System.Drawing.Size(81, 22);
-			this.sensitivity.TabIndex = 12;
-			this.sensitivity.Value = new decimal(new int[] {
+			this.nudSensitive.Name = "nudSensitive";
+			this.nudSensitive.Size = new System.Drawing.Size(81, 22);
+			this.nudSensitive.TabIndex = 12;
+			this.nudSensitive.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
 			// 
-			// mode
+			// cbxMode
 			// 
-			this.mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.mode.FormattingEnabled = true;
-			this.mode.Items.AddRange(new object[] {
+			this.cbxMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxMode.FormattingEnabled = true;
+			this.cbxMode.Items.AddRange(new object[] {
             "Hệ tọa độ Descartes (Cartesian)",
             "Hệ tọa độ cực (Polar)"});
-			this.mode.Location = new System.Drawing.Point(161, 417);
-			this.mode.Margin = new System.Windows.Forms.Padding(4);
-			this.mode.Name = "mode";
-			this.mode.Size = new System.Drawing.Size(318, 24);
-			this.mode.TabIndex = 13;
-			this.mode.SelectedIndexChanged += new System.EventHandler(this.mode_SelectedIndexChanged);
+			this.cbxMode.Location = new System.Drawing.Point(161, 417);
+			this.cbxMode.Margin = new System.Windows.Forms.Padding(4);
+			this.cbxMode.Name = "cbxMode";
+			this.cbxMode.Size = new System.Drawing.Size(306, 24);
+			this.cbxMode.TabIndex = 13;
+			this.cbxMode.SelectedIndexChanged += new System.EventHandler(this.cbxMode_SelectedIndexChanged);
 			// 
-			// penWidth
+			// nudWidthStroke
 			// 
-			this.penWidth.Location = new System.Drawing.Point(398, 348);
-			this.penWidth.Margin = new System.Windows.Forms.Padding(4);
-			this.penWidth.Maximum = new decimal(new int[] {
+			this.nudWidthStroke.Location = new System.Drawing.Point(386, 352);
+			this.nudWidthStroke.Margin = new System.Windows.Forms.Padding(4);
+			this.nudWidthStroke.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-			this.penWidth.Minimum = new decimal(new int[] {
+			this.nudWidthStroke.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-			this.penWidth.Name = "penWidth";
-			this.penWidth.Size = new System.Drawing.Size(81, 22);
-			this.penWidth.TabIndex = 11;
-			this.penWidth.Value = new decimal(new int[] {
+			this.nudWidthStroke.Name = "nudWidthStroke";
+			this.nudWidthStroke.Size = new System.Drawing.Size(81, 22);
+			this.nudWidthStroke.TabIndex = 11;
+			this.nudWidthStroke.Value = new decimal(new int[] {
             2,
             0,
             0,
@@ -432,123 +430,67 @@
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hToolStripMenuItem,
-            this.toánTửToolStripMenuItem,
-            this.thôngTinToolStripMenuItem});
+            this.MenuFuncs,
+            this.MenuOprs,
+            this.MenuInfo});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(492, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(477, 24);
 			this.menuStrip1.TabIndex = 29;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// hToolStripMenuItem
+			// MenuFuncs
 			// 
-			this.hToolStripMenuItem.Name = "hToolStripMenuItem";
-			this.hToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-			this.hToolStripMenuItem.Text = "Chèn Hàm số";
-			this.hToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.hToolStripMenuItem_DropDownItemClicked);
+			this.MenuFuncs.Name = "MenuFuncs";
+			this.MenuFuncs.Size = new System.Drawing.Size(91, 20);
+			this.MenuFuncs.Text = "Chèn Hàm số";
+			this.MenuFuncs.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuFuncs_DropDownItemClicked);
 			// 
-			// toánTửToolStripMenuItem
+			// MenuOprs
 			// 
-			this.toánTửToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8});
-			this.toánTửToolStripMenuItem.Name = "toánTửToolStripMenuItem";
-			this.toánTửToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-			this.toánTửToolStripMenuItem.Text = "Chèn Toán tử";
+			this.MenuOprs.Name = "MenuOprs";
+			this.MenuOprs.Size = new System.Drawing.Size(89, 20);
+			this.MenuOprs.Text = "Chèn Toán tử";
+			this.MenuOprs.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuOprs_DropDownItemClicked);
 			// 
-			// toolStripMenuItem2
+			// MenuInfo
 			// 
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem2.Text = "+";
-			this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-			// 
-			// toolStripMenuItem3
-			// 
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem3.Text = "--";
-			this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-			// 
-			// toolStripMenuItem4
-			// 
-			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem4.Text = "*";
-			this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-			// 
-			// toolStripMenuItem5
-			// 
-			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem5.Text = "/";
-			this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-			// 
-			// toolStripMenuItem6
-			// 
-			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem6.Text = "^";
-			this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-			// 
-			// toolStripMenuItem7
-			// 
-			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem7.Text = "(";
-			this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-			// 
-			// toolStripMenuItem8
-			// 
-			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(84, 22);
-			this.toolStripMenuItem8.Text = ")";
-			this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-			// 
-			// thôngTinToolStripMenuItem
-			// 
-			this.thôngTinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.MenuInfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tácGiảToolStripMenuItem});
-			this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-			this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-			this.thôngTinToolStripMenuItem.Text = "Thông tin";
+			this.MenuInfo.Name = "MenuInfo";
+			this.MenuInfo.Size = new System.Drawing.Size(70, 20);
+			this.MenuInfo.Text = "Thông tin";
 			// 
 			// tácGiảToolStripMenuItem
 			// 
 			this.tácGiảToolStripMenuItem.Name = "tácGiảToolStripMenuItem";
-			this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+			this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.tácGiảToolStripMenuItem.Text = "Tác giả";
-			this.tácGiảToolStripMenuItem.Click += new System.EventHandler(this.tácGiảToolStripMenuItem_Click);
+			this.tácGiảToolStripMenuItem.Click += new System.EventHandler(this.MenuInfo_Click);
 			// 
-			// Main
+			// ThongTin
 			// 
-			this.AcceptButton = this.cmdPlotGraph;
+			this.AcceptButton = this.btnDraw;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(492, 505);
-			this.Controls.Add(this.penWidth);
+			this.ClientSize = new System.Drawing.Size(477, 505);
+			this.Controls.Add(this.nudWidthStroke);
 			this.Controls.Add(this.label12);
-			this.Controls.Add(this.mode);
-			this.Controls.Add(this.sensitivity);
+			this.Controls.Add(this.cbxMode);
+			this.Controls.Add(this.nudSensitive);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label9);
-			this.Controls.Add(this.divX);
+			this.Controls.Add(this.axisRatio);
 			this.Controls.Add(this.label8);
-			this.Controls.Add(this.endY);
+			this.Controls.Add(this.nudEndY);
 			this.Controls.Add(this.label5);
-			this.Controls.Add(this.startY);
+			this.Controls.Add(this.nudStartY);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.endX);
+			this.Controls.Add(this.nudEndX);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.startX);
+			this.Controls.Add(this.nudStartX);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.cmdPlotGraph);
+			this.Controls.Add(this.btnDraw);
 			this.Controls.Add(this.btnRemove);
 			this.Controls.Add(this.btnClear);
 			this.Controls.Add(this.label2);
@@ -563,16 +505,16 @@
 			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
-			this.Name = "Main";
-			this.Text = "GraphDrawing";
-			this.Load += new System.EventHandler(this.Form1_Load);
-			((System.ComponentModel.ISupportInitialize)(this.startX)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.endX)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.endY)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.startY)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.divX)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.sensitivity)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.penWidth)).EndInit();
+			this.Name = "ThongTin";
+			this.Text = "Thông tin đồ thị";
+			this.Load += new System.EventHandler(this.ThongTin_Load);
+			((System.ComponentModel.ISupportInitialize)(this.nudStartX)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudEndX)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudEndY)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudStartY)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.axisRatio)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSensitive)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudWidthStroke)).EndInit();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
@@ -589,35 +531,28 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button cmdPlotGraph;
+        private System.Windows.Forms.Button btnDraw;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown startX;
-        private System.Windows.Forms.NumericUpDown endX;
+        private System.Windows.Forms.NumericUpDown nudStartX;
+        private System.Windows.Forms.NumericUpDown nudEndX;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown endY;
+        private System.Windows.Forms.NumericUpDown nudEndY;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown startY;
+        private System.Windows.Forms.NumericUpDown nudStartY;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown divX;
+        private System.Windows.Forms.NumericUpDown axisRatio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown sensitivity;
-        private System.Windows.Forms.ComboBox mode;
-        private System.Windows.Forms.NumericUpDown penWidth;
+        private System.Windows.Forms.NumericUpDown nudSensitive;
+        private System.Windows.Forms.ComboBox cbxMode;
+        private System.Windows.Forms.NumericUpDown nudWidthStroke;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem hToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toánTửToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuFuncs;
+        private System.Windows.Forms.ToolStripMenuItem MenuOprs;
+        private System.Windows.Forms.ToolStripMenuItem MenuInfo;
         private System.Windows.Forms.ToolStripMenuItem tácGiảToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
 
     }
 }

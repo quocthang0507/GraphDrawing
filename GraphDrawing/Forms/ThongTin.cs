@@ -7,43 +7,43 @@ using System.Windows.Forms;
 
 namespace GraphDrawing
 {
-	public partial class Main : Form
+	public partial class ThongTin : Form
 	{
-		private Graph form;
+		private DoThi form;
 		private readonly Color[] colorLevels = { Color.Red, Color.Green, Color.Blue, Color.Purple, Color.Brown, Color.Orange, Color.Chocolate, Color.Maroon, Color.Navy, Color.YellowGreen };
+		private readonly char[] oprsArray = new char[] { '+', '-', '*', '/', '^', '(', ')' };
 
-		public Main()
+		public ThongTin()
 		{
 			InitializeComponent();
 		}
 
-		#region Event Handlers
-		private void Form1_Load(object sender, EventArgs e)
+		/*=======================================================================*/
+
+		#region Events
+		private void ThongTin_Load(object sender, EventArgs e)
 		{
-			mode.SelectedIndex = 0;
-			sensitivity.Enabled = false;
+			cbxMode.SelectedIndex = 0;
+			nudSensitive.Enabled = false;
 			PopulateExps();
-			PopulateFuncsMenu();
+			PopulateMenuFuncs();
+			PopulateMenuOprs();
 		}
 
-		private void PopulateFuncsMenu()
-		{
-			foreach (string item in Enum.GetNames(typeof(EnumFuncs)))
-			{
-				hToolStripMenuItem.DropDownItems.Add(item);
-			}
-		}
-
-		private void hToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		private void MenuFuncs_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 			txtExpression.Text += e.ClickedItem.Text + "(";
 		}
 
-		private void PopulateExps()
+		private void MenuOprs_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
-			lstExpressions.Items.Add("x");
-			lstExpressions.Items.Add("sin(x)");
-			lstExpressions.Items.Add("5*(sin(x)+sin(3*x)/3+sin(5*x)/5+sin(7*x)/7+sin(9*x)/9+sin(11*x)/11+sin(13*x)/13)");
+			txtExpression.Text += e.ClickedItem.Text;
+		}
+
+		private void MenuInfo_Click(object sender, EventArgs e)
+		{
+			TacGia frmTacGia = new TacGia();
+			frmTacGia.Show();
 		}
 
 		private void txtExpression_TextChanged(object sender, EventArgs e)
@@ -60,15 +60,11 @@ namespace GraphDrawing
 
 		private bool CheckDuplication()
 		{
-			for (int i = 0; i < lstExpressions.Items.Count; i++)
+			if (lstExpressions.Items.Contains(txtExpression.Text))
 			{
-				if (txtExpression.Text == lstExpressions.Items[i].ToString())
-				{
-					MessageBox.Show("Đã có biểu thức này trong danh sách rồi.");
-					return false;
-				}
+				MessageBox.Show("Đã có biểu thức này trong danh sách rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
 			}
-
 			AddExpression();
 			lstExpressions.SelectedIndex = -1;
 			lstExpressions.Refresh();
@@ -88,16 +84,15 @@ namespace GraphDrawing
 			{
 				index--;
 			}
-
-			if (index != -1)
+			else if (index != -1)
 			{
 				lstExpressions.SelectedIndex = index;
 			}
 		}
 
-		private void cmdPlotGraph_Click(object sender, EventArgs e)
+		private void btnDraw_Click(object sender, EventArgs e)
 		{
-			if (mode.Text == "Cartesian")
+			if (cbxMode.SelectedIndex == 1)
 			{
 				ExpressionHelper.Cartesian = true;
 				ExpressionHelper.Polar = false;
@@ -107,30 +102,25 @@ namespace GraphDrawing
 				ExpressionHelper.Polar = true;
 				ExpressionHelper.Cartesian = false;
 			}
-
-			ExpressionHelper.XStartValue = Convert.ToDouble(startX.Value);
-			ExpressionHelper.XEndValue = Convert.ToDouble(endX.Value);
-
+			ExpressionHelper.XStartValue = Convert.ToDouble(nudStartX.Value);
+			ExpressionHelper.XEndValue = Convert.ToDouble(nudEndX.Value);
 			if (form == null || form.IsDisposed)
 			{
-				form = new Graph();
+				form = new DoThi();
 				form.Show();
 			}
-
-			form.SetRange((double)startX.Value, (double)endX.Value, (double)startY.Value, (double)endY.Value);
-			form.SetDivisions((int)divX.Value, (int)divX.Value);
-			form.SetPenWidth((int)penWidth.Value);
-
-			if (mode.SelectedItem.ToString() == "Polar")
+			form.SetRange((double)nudStartX.Value, (double)nudEndX.Value, (double)nudStartY.Value, (double)nudEndY.Value);
+			form.SetDivisions((int)axisRatio.Value, (int)axisRatio.Value);
+			form.SetPenWidth((int)nudWidthStroke.Value);
+			if (cbxMode.SelectedIndex == 2)
 			{
-				form.SetMode(GraphMode.Polar, (int)sensitivity.Value);
+				form.SetMode(GraphMode.Polar, (int)nudSensitive.Value);
 			}
 			else
 			{
 				form.SetMode(GraphMode.Rectangular, 50);
 			}
 
-			//form.RemoveAllExpressions();
 			ExpressionHelper.ArrExpression.Clear();
 			for (int i = 0; i < lstExpressions.Items.Count; i++)
 			{
@@ -138,20 +128,19 @@ namespace GraphDrawing
 				//Add expression to Array Expression (ThemBotBieuThuc form)
 				ExpressionHelper.ArrExpression.Add(lstExpressions.Items[i]);
 			}
-
 			form.Refresh();
 			form.Activate();
 		}
 
-		private void mode_SelectedIndexChanged(object sender, EventArgs e)
+		private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (mode.SelectedIndex == 1)
+			if (cbxMode.SelectedIndex == 1)
 			{
-				sensitivity.Enabled = true;
+				nudSensitive.Enabled = true;
 			}
 			else
 			{
-				sensitivity.Enabled = false;
+				nudSensitive.Enabled = false;
 			}
 		}
 
@@ -161,7 +150,6 @@ namespace GraphDrawing
 			{
 				AddExpression();
 			}
-
 			//if a letter is found
 			if (char.IsLetter(e.KeyChar))
 			{
@@ -179,7 +167,7 @@ namespace GraphDrawing
 					//if a function is formed, add a "("
 					else
 					{
-						string text = string.Empty;
+						string text = "";
 						int i = cursorPos - 1;
 						while (i >= 0)
 						{
@@ -196,7 +184,6 @@ namespace GraphDrawing
 						{
 							text = txtExpression.Text.Substring(i, cursorPos - i) + e.KeyChar;
 						}
-
 						if (IsFunction(text))
 						{
 							txtExpression.Text = txtExpression.Text.Insert(cursorPos, e.KeyChar.ToString() + "(");
@@ -219,8 +206,46 @@ namespace GraphDrawing
 
 		#endregion
 
-		#region Helper Functions
-		//this functions handles coloring of expressions
+		/*=======================================================================*/
+
+		#region Methods
+
+		/// <summary>
+		/// Generate operator dropdownitems
+		/// </summary>
+		private void PopulateMenuOprs()
+		{
+			foreach (char opr in oprsArray)
+			{
+				MenuOprs.DropDownItems.Add("" + opr);
+			}
+		}
+
+		/// <summary>
+		/// Generate functional dropdownitems
+		/// </summary>
+		private void PopulateMenuFuncs()
+		{
+			foreach (string item in Enum.GetNames(typeof(EnumFuncs)))
+			{
+				MenuFuncs.DropDownItems.Add(item);
+			}
+		}
+
+		/// <summary>
+		/// Generate example expressions
+		/// </summary>
+		private void PopulateExps()
+		{
+			lstExpressions.Items.Add("x");
+			lstExpressions.Items.Add("sin(x)");
+			lstExpressions.Items.Add("5*(sin(x)+sin(3*x)/3+sin(5*x)/5+sin(7*x)/7+sin(9*x)/9+sin(11*x)/11+sin(13*x)/13)");
+		}
+
+		/// <summary>
+		/// This functions handles coloring of expressions
+		/// </summary>
+		/// <param name="text"></param>
 		private void WriteText(string text)
 		{
 			int colorIndex = 0;
@@ -237,9 +262,7 @@ namespace GraphDrawing
 
 					txtExpression.SelectionColor = colorLevels[colorIndex];
 				}
-
 				txtExpression.AppendText(text[i].ToString());
-
 				if (text[i] == ')')
 				{
 					colorIndex--;
@@ -253,6 +276,11 @@ namespace GraphDrawing
 			}
 		}
 
+		/// <summary>
+		/// Check valid function
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
 		private bool IsFunction(string text)
 		{
 			for (int i = 0; i < Enum.GetValues(typeof(ContentAlignment)).Length; i++)
@@ -266,88 +294,52 @@ namespace GraphDrawing
 			return false;
 		}
 
+		/// <summary>
+		/// Add current expression to list box
+		/// </summary>
 		private void AddExpression()
 		{
 			if (txtExpression.Text.Length == 0)
 			{
+				MessageBox.Show("Bạn không thể thêm biểu thức trống vào danh sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
-			txtExpression.Text = CompleteParenthesis(txtExpression.Text);
-			string expText = txtExpression.Text;
+			string expText = CompleteParenthesis(txtExpression.Text);
 			IEvaluatable exp = new Expression(expText);
 			if (!exp.IsValid)
 			{
-				if (MessageBox.Show("Biểu thức bạn định thêm vào danh sách không hợp lệ! Bạn vẫn muốn thêm nó vào danh sách?", "", MessageBoxButtons.YesNo) == DialogResult.No)
+				if (MessageBox.Show("Biểu thức bạn định thêm vào danh sách không hợp lệ! Bạn vẫn muốn thêm nó vào danh sách?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
 				{
 					return;
 				}
 			}
 			lstExpressions.Items.Add(expText);
-			txtExpression.Text = string.Empty;
+			txtExpression.Text = "";
 		}
+
+		/// <summary>
+		/// Automatically complete parenthesises on expression
+		/// </summary>
+		/// <param name="exp"></param>
+		/// <returns></returns>
 		private string CompleteParenthesis(string exp)
 		{
-			int leftBracket = 0;
-			int rightBracket = 0;
+			int p = 0; // number of parenthesises
 			for (int i = 0; i < exp.Length; i++)
 			{
 				if (exp[i] == '(')
 				{
-					leftBracket++;
+					p++;
 				}
 				else if (exp[i] == ')')
 				{
-					rightBracket++;
+					p--;
 				}
 			}
-			exp = exp.PadRight(exp.Length + leftBracket - rightBracket, ')');
+			exp = exp.PadRight(exp.Length + p, ')');
 			return exp;
 		}
 
-		#endregion
-
-		#region Menu Area
-		private void tácGiảToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			TacGia frmTacGia = new TacGia();
-			frmTacGia.Show();
-		}
-
-		private void toolStripMenuItem2_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += "+";
-		}
-
-		private void toolStripMenuItem3_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += "-";
-		}
-
-		private void toolStripMenuItem4_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += "*";
-		}
-
-		private void toolStripMenuItem5_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += "/";
-		}
-
-		private void toolStripMenuItem6_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += "^";
-		}
-
-		private void toolStripMenuItem7_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += "(";
-		}
-
-		private void toolStripMenuItem8_Click(object sender, EventArgs e)
-		{
-			txtExpression.Text += ")";
-		}
 		#endregion
 
 	}

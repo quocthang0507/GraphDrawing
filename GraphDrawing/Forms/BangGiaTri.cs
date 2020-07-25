@@ -4,42 +4,41 @@ using System.Windows.Forms;
 
 namespace GraphDrawing
 {
-	public partial class ThongTinDoThi : Form
+	public partial class BangGiaTri : Form
 	{
-		public ThongTinDoThi()
+		public BangGiaTri()
 		{
 			InitializeComponent();
 		}
 
-		private void ThongTinDoThi_Load(object sender, EventArgs e)
+		private void BangGiaTri_Load(object sender, EventArgs e)
 		{
 			for (int i = 0; i < ExpressionHelper.ArrExpression.Count; i++)
 			{
-				cbBieuThuc.Items.Add(ExpressionHelper.ArrExpression[i].ToString());
-				cbBieuThuc.SelectedIndex = 0;
+				cbxExpressions.Items.Add(ExpressionHelper.ArrExpression[i].ToString());
+				cbxExpressions.SelectedIndex = 0;
 			}
-			rbDo.Checked = false;
-			rbRadian.Checked = true;
+			rdbDegree.Checked = false;
+			rdbRadian.Checked = true;
 		}
 
 		private void btnDong_Click(object sender, EventArgs e)
 		{
-			rbDo.Checked = false;
-			rbRadian.Checked = true;
+			rdbDegree.Checked = false;
+			rdbRadian.Checked = true;
 			Close();
 		}
 
 		private void btnXem_Click(object sender, EventArgs e)
 		{
-			lvXAndFX.Items.Clear();
-			Expression expression = new Expression(cbBieuThuc.Text);
-
+			lstValues.Items.Clear();
+			Expression expression = new Expression(cbxExpressions.Text);
 			for (int i = Convert.ToInt32(ExpressionHelper.XStartValue); i <= Convert.ToInt32(ExpressionHelper.XEndValue); i++)
 			{
 				double Y = expression.Evaluate(i);
 				ListViewItem lvi = new ListViewItem(i.ToString());
 				lvi.SubItems.Add(Y.ToString());
-				lvXAndFX.Items.Add(lvi);
+				lstValues.Items.Add(lvi);
 			}
 		}
 

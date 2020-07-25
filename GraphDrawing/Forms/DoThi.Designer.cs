@@ -1,6 +1,6 @@
 ﻿namespace GraphDrawing
 {
-	partial class Graph
+	partial class DoThi
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Graph));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoThi));
 			this.label1 = new System.Windows.Forms.Label();
 			this.lblPosition = new System.Windows.Forms.Label();
 			this.lblSensitivity = new System.Windows.Forms.Label();

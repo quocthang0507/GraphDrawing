@@ -21,8 +21,6 @@ namespace GraphLibrary
 			ExpressionText = expressionText;
 		}
 
-		#region Public Properties for IEvaluatable
-
 		public string ExpressionText
 		{
 			get => text;
@@ -36,9 +34,6 @@ namespace GraphLibrary
 		}
 
 		public bool IsValid => isValid;
-		#endregion
-
-		#region Public Methods for IEvaluatable
 
 		public double Evaluate(double dvalueX)
 		{
@@ -49,9 +44,42 @@ namespace GraphLibrary
 			return EvaluateInternal(dvalueX, 0, out int temp);
 		}
 
-		#endregion
+		public static double GetR(double X, double Y)
+		{
+			return Math.Sqrt(X * X + Y * Y);
+		}
 
-		#region Private Methods
+		public static double GetTheta(double X, double Y)
+		{
+			double theta;
+			if (X == 0)
+			{
+				if (Y > 0)
+				{
+					theta = Math.PI / 2;
+				}
+				else
+				{
+					theta = -Math.PI / 2;
+				}
+			}
+			else
+			{
+				theta = Math.Atan(Y / X);
+			}
+
+			//actual range of theta is from 0 to 2PI
+			if (X < 0)
+			{
+				theta += Math.PI;
+			}
+			else if (Y < 0)
+			{
+				theta += 2 * Math.PI;
+			}
+
+			return theta;
+		}
 
 		private void Validate()
 		{
@@ -404,8 +432,9 @@ namespace GraphLibrary
 					return Math.Pow(dOperand1, dOperand2);
 				case '%':
 					return dOperand1 % dOperand2;
+				default:
+					return double.NaN;
 			}
-			return double.NaN;
 		}
 
 		/// <summary>
@@ -432,12 +461,12 @@ namespace GraphLibrary
 					{
 						if (strExpression.Substring(-1 + j, 1) == ")")
 						{
-							iBrackets += 1;
+							iBrackets++;
 						}
 
 						if (strExpression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets -= 1;
+							iBrackets--;
 						}
 
 						if (iBrackets < 0)
@@ -449,50 +478,49 @@ namespace GraphLibrary
 						{
 							if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-")
 							{
-								strExpression = strExpression.Substring(-1 + 1, j) + "(" + strExpression.Substring(-1 + j + 1);
+								strExpression = strExpression.Substring(0, j) + "(" + strExpression.Substring(j);
 								bReplace = true;
-								i += 1;
+								i++;
 								break;
 							}
 						}
 					}
 					iBrackets = 0;
 					j = i;
-					i += 1;
+					i++;
 					while (bReplace)
 					{
-						j += 1;
+						j++;
 						if (strExpression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets += 1;
+							iBrackets++;
 						}
 
 						if (strExpression.Substring(-1 + j, 1) == ")")
 						{
 							if (iBrackets == 0)
 							{
-								strExpression = strExpression.Substring(-1 + 1, j - 1) + ")" + strExpression.Substring(-1 + j);
+								strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
 								bReplace = false;
-								i += 1;
+								i++;
 								break;
 							}
 							else
 							{
-								iBrackets -= 1;
+								iBrackets--;
 							}
 						}
 						if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-")
 						{
-							strExpression = strExpression.Substring(-1 + 1, j - 1) + ")" + strExpression.Substring(-1 + j);
+							strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
 							bReplace = false;
-							i += 1;
+							i++;
 							break;
 						}
 					}
 				}
-
 				iLengthExpression = strExpression.Length;
-				i += 1;
+				i++;
 			}
 
 			//Precedence for ^ && %
@@ -506,48 +534,46 @@ namespace GraphLibrary
 					{
 						if (strExpression.Substring(-1 + j, 1) == ")")
 						{
-							iBrackets += 1;
+							iBrackets++;
 						}
-
-						if (strExpression.Substring(-1 + j, 1) == "(")
+						else if (strExpression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets -= 1;
+							iBrackets--;
 						}
 
 						if (iBrackets < 0)
 						{
 							break;
 						}
-
-						if (iBrackets == 0)
+						else if (iBrackets == 0)
 						{
 							if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-" || strExpression.Substring(-1 + j, 1) == "*" || strExpression.Substring(-1 + j, 1) == "/")
 							{
-								strExpression = strExpression.Substring(-1 + 1, j) + "(" + strExpression.Substring(-1 + j + 1);
+								strExpression = strExpression.Substring(0, j) + "(" + strExpression.Substring(j);
 								bReplace = true;
-								i += 1;
+								i++;
 								break;
 							}
 						}
 					}
 					iBrackets = 0;
 					j = i;
-					i += 1;
+					i++;
 					while (bReplace)
 					{
-						j += 1;
+						j++;
 						if (strExpression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets += 1;
+							iBrackets++;
 						}
 
 						if (strExpression.Substring(-1 + j, 1) == ")")
 						{
 							if (iBrackets == 0)
 							{
-								strExpression = strExpression.Substring(-1 + 1, j - 1) + ")" + strExpression.Substring(-1 + j);
+								strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
 								bReplace = false;
-								i += 1;
+								i++;
 								break;
 							}
 							else
@@ -557,58 +583,18 @@ namespace GraphLibrary
 						}
 						if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-" || strExpression.Substring(-1 + j, 1) == "*" || strExpression.Substring(-1 + j, 1) == "/")
 						{
-							strExpression = strExpression.Substring(-1 + 1, j - 1) + ")" + strExpression.Substring(-1 + j);
+							strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
 							bReplace = false;
-							i += 1;
+							i++;
 							break;
 						}
 					}
 				}
 				iLengthExpression = strExpression.Length;
-				i += 1;
+				i++;
 			}
 			return strExpression;
 		}
-
-		private static double GetR(double X, double Y)
-		{
-			return Math.Sqrt(X * X + Y * Y);
-		}
-
-		private static double GetTheta(double X, double Y)
-		{
-			double theta;
-			if (X == 0)
-			{
-				if (Y > 0)
-				{
-					theta = Math.PI / 2;
-				}
-				else
-				{
-					theta = -Math.PI / 2;
-				}
-			}
-			else
-			{
-				theta = Math.Atan(Y / X);
-			}
-
-			//actual range of theta is from 0 to 2PI
-			if (X < 0)
-			{
-				theta += Math.PI;
-			}
-			else if (Y < 0)
-			{
-				theta += 2 * Math.PI;
-			}
-
-			return theta;
-		}
-
-		#endregion
-
 	}
 }
 
