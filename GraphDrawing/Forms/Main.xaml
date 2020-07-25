@@ -21,7 +21,7 @@
 		<Menu FontSize="14">
 			<MenuItem x:Name="menuFuncs" Header="Chèn hàm số" Click="menuFuncs_Click"/>
 			<MenuItem x:Name="menuOprs" Header="Chèn toán tử" Click="menuOprs_Click"/>
-			<MenuItem Header="Thông tin tác giả"/>
+			<MenuItem Header="Thông tin tác giả" Click="MenuIntro_Click"/>
 		</Menu>
 		<Grid Grid.Row="2">
 			<Grid.ColumnDefinitions>
@@ -31,7 +31,7 @@
 			</Grid.ColumnDefinitions>
 			<Label Content="Biểu thức cần thêm: "/>
 			<TextBox x:Name="tbxExpression" Grid.Column="1" TabIndex="1"/>
-			<Button x:Name="btnAdd" Grid.Column="2" Content="Thêm vào danh sách" TabIndex="2" Width="150"/>
+			<Button x:Name="btnAdd" Grid.Column="2" Content="Thêm vào danh sách" TabIndex="2" Width="150" Click="btnAdd_Click"/>
 		</Grid>
 		<Grid Grid.Row="4">
 			<Grid.RowDefinitions>
@@ -47,8 +47,8 @@
 					<ColumnDefinition Width="10"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Button x:Name="btnDeleteExp" Content="Xóa biểu thức đang chọn" Width="200" Height="25" HorizontalAlignment="Right" TabIndex="4"/>
-				<Button x:Name="btnDeleteAll" Grid.Column="2" Content="Xóa danh sách" Width="200" Height="25" HorizontalAlignment="Left" TabIndex="5"/>
+				<Button x:Name="btnDeleteExp" Content="Xóa biểu thức đang chọn" Width="200" Height="25" HorizontalAlignment="Right" TabIndex="4" Click="btnDeleteExp_Click"/>
+				<Button x:Name="btnDeleteAll" Grid.Column="2" Content="Xóa danh sách" Width="200" Height="25" HorizontalAlignment="Left" TabIndex="5" Click="btnDeleteAll_Click"/>
 			</Grid>
 		</Grid>
 		<Grid Grid.Row="6">
@@ -97,12 +97,12 @@
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5">
 				<Label Content="Chế độ đồ thị"/>
-				<ComboBox x:Name="cbxGraphMode" TabIndex="13" Height="25">
+				<ComboBox x:Name="cbxGraphMode" TabIndex="13" Height="25" SelectionChanged="cbxGraphMode_SelectionChanged">
 					<ComboBoxItem Content="Hệ tọa độ Descartes (Cartesian)" Selector.IsSelected="True"/>
 					<ComboBoxItem Content="Hệ tọa độ cực (Polar)"/>
 				</ComboBox>
 			</StackPanel>
-			<Button x:Name="btnDraw" Content="Bắt đầu vẽ!" TabIndex="14" IsDefault="True" Width="100" Height="25" Grid.Row="7"/>
+			<Button x:Name="btnDraw" Content="Bắt đầu vẽ!" TabIndex="14" IsDefault="True" Width="100" Height="25" Grid.Row="7" Click="btnDraw_Click"/>
 		</Grid>
 	</Grid>
 </Window>

@@ -58,5 +58,36 @@ namespace GraphDrawing
 		{
 
 		}
+
+		private void MenuIntro_Click(object sender, RoutedEventArgs e)
+		{
+			MessageBox.Show("Chương trình này được viết lại từ chương trình VietGraph 1.2\r\nLa Quốc Thắng", "Thông tin chương trình", MessageBoxButton.OK, MessageBoxImage.Information);
+		}
+
+		private void btnAdd_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnDeleteExp_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnDeleteAll_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnDraw_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void cbxGraphMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
+		}
+
 	}
 }
