@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace GraphLibrary
 {
 	public class ExpressionHelper
 	{
-        private static ArrayList _arrExpression = new ArrayList();
-        private static bool _cartesian = false;
-        private static bool _polar = false;
-        private static double _xStartValue = -1;
-        private static double _xEndValue = -1;
-        private static bool _blnDo = false;
-        private static bool _blnRadian = true;
+		private static ArrayList _arrExpression = new ArrayList();
+		private static bool _cartesian = false;
+		private static bool _polar = false;
+		private static double _xStartValue = -1;
+		private static double _xEndValue = -1;
+		private static bool _blnDo = false;
+		private static bool _blnRadian = true;
 
 		public static ArrayList ArrExpression { get => _arrExpression; set => _arrExpression = value; }
 		public static bool Cartesian { get => _cartesian; set => _cartesian = value; }

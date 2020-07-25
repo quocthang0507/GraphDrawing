@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:GraphDrawing"
 		xmlns:winforms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
-        Title="Thêm thông tin vào đồ thị" MinHeight="500" MinWidth="1050" MaxWidth="1050" FontSize="14"
-		Background="Azure">
+        Title="Thêm thông tin vào đồ thị" MinHeight="500" MinWidth="1050" FontSize="14"
+		Background="Azure" Loaded="Window_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="20"/>
@@ -30,7 +30,10 @@
 				<ColumnDefinition Width="0.4*"/>
 			</Grid.ColumnDefinitions>
 			<Label Content="Biểu thức cần thêm: "/>
-			<TextBox x:Name="tbxExpression" Grid.Column="1" TabIndex="1"/>
+			<WindowsFormsHost Grid.Column="1">
+				<winforms:RichTextBox x:Name="tbxExpression" TabIndex="1" TextChanged="tbxExpression_TextChanged" Height="20"/>
+			</WindowsFormsHost>
+			<!--<TextBox x:Name="tbxExpressions" Grid.Column="1" TabIndex="1" TextChanged="tbxExpression_TextChanged"/>-->
 			<Button x:Name="btnAdd" Grid.Column="2" Content="Thêm vào danh sách" TabIndex="2" Width="150" Click="btnAdd_Click"/>
 		</Grid>
 		<Grid Grid.Row="4">
@@ -39,7 +42,7 @@
 				<RowDefinition Height="30"/>
 			</Grid.RowDefinitions>
 			<GroupBox Header="Danh sách biểu thức:">
-				<ListBox x:Name="lbxExpression" TabIndex="3"/>
+				<ListBox x:Name="lbxExpression" TabIndex="3" SelectionChanged="lbxExpression_SelectionChanged"/>
 			</GroupBox>
 			<Grid Grid.Row="1">
 				<Grid.ColumnDefinitions>
@@ -97,7 +100,7 @@
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5">
 				<Label Content="Chế độ đồ thị"/>
-				<ComboBox x:Name="cbxGraphMode" TabIndex="13" Height="25" SelectionChanged="cbxGraphMode_SelectionChanged">
+				<ComboBox x:Name="cbxGraphMode" TabIndex="13" Width="250" Height="25" SelectionChanged="cbxGraphMode_SelectionChanged">
 					<ComboBoxItem Content="Hệ tọa độ Descartes (Cartesian)" Selector.IsSelected="True"/>
 					<ComboBoxItem Content="Hệ tọa độ cực (Polar)"/>
 				</ComboBox>
