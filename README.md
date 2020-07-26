@@ -6,28 +6,28 @@
 
 ## Hướng dẫn sử dụng
 
-![Ảnh 1](1.png?raw=true "Ảnh 1")
+![Ảnh 1](Images/1.png?raw=true "Ảnh 1")
 *Ảnh 1*
 
-![Ảnh 2](1.png?raw=true "Ảnh 2")
+![Ảnh 2](Images/1.png?raw=true "Ảnh 2")
 *Ảnh 2*
 
-![Ảnh 3](1.png?raw=true "Ảnh 3")
+![Ảnh 3](Images/1.png?raw=true "Ảnh 3")
 *Ảnh 3*
 
-![Ảnh 4](1.png?raw=true "Ảnh 4")
+![Ảnh 4](Images/1.png?raw=true "Ảnh 4")
 *Ảnh 4*
 
-![Ảnh 5](1.png?raw=true "Ảnh 5")
+![Ảnh 5](Images/1.png?raw=true "Ảnh 5")
 *Ảnh 5*
 
-![Ảnh 6](1.png?raw=true "Ảnh 6")
+![Ảnh 6](Images/1.png?raw=true "Ảnh 6")
 *Ảnh 6*
 
-![Ảnh 7](1.png?raw=true "Ảnh 7")
+![Ảnh 7](Images/1.png?raw=true "Ảnh 7")
 *Ảnh 7*
 
-![Ảnh 8](1.png?raw=true "Ảnh 8")
+![Ảnh 8](Images/1.png?raw=true "Ảnh 8")
 *Ảnh 8*
 
 ## Yêu cầu
