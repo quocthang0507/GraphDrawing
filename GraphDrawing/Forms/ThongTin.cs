@@ -112,7 +112,7 @@ namespace GraphDrawing
 			form.SetRange((double)nudStartX.Value, (double)nudEndX.Value, (double)nudStartY.Value, (double)nudEndY.Value);
 			form.SetDivisions((int)axisRatio.Value, (int)axisRatio.Value);
 			form.SetPenWidth((int)nudWidthStroke.Value);
-			if (cbxMode.SelectedIndex == 2)
+			if (cbxMode.SelectedIndex == 1)
 			{
 				form.SetMode(GraphMode.Polar, (int)nudSensitive.Value);
 			}

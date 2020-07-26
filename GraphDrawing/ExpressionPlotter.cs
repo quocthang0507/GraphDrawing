@@ -596,7 +596,7 @@ namespace GraphDrawing
 
 		public void ToggleGrids()
 		{
-			bGrids = (!bGrids);
+			bGrids = !bGrids;
 		}
 
 		public double[] GetValues(double x)

@@ -41,23 +41,24 @@
 			this.menuChangeGraph = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuValueTable = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuExitAll = new System.Windows.Forms.ToolStripMenuItem();
 			this.lblChuThich = new System.Windows.Forms.Label();
-			this.btnGiamDoNhayPolar = new System.Windows.Forms.Button();
-			this.btnTangDoNhayPolar = new System.Windows.Forms.Button();
-			this.btnLuuDoThi = new System.Windows.Forms.Button();
+			this.expPlotter = new GraphDrawing.ExpressionPlotter();
+			this.btnDecPolar = new System.Windows.Forms.Button();
+			this.btnIncPolar = new System.Windows.Forms.Button();
+			this.btnSave = new System.Windows.Forms.Button();
 			this.btnRight = new System.Windows.Forms.Button();
-			this.btnThuNhoTrucY = new System.Windows.Forms.Button();
-			this.btnSaoChepDoThi = new System.Windows.Forms.Button();
+			this.btnZoomOutY = new System.Windows.Forms.Button();
+			this.btnCopy = new System.Windows.Forms.Button();
+			this.btnExit = new System.Windows.Forms.Button();
 			this.btnLeft = new System.Windows.Forms.Button();
-			this.btnPhongToTrucY = new System.Windows.Forms.Button();
-			this.btnThuNhoTrucX = new System.Windows.Forms.Button();
-			this.btnPhongToTrucX = new System.Windows.Forms.Button();
-			this.btnThuNho = new System.Windows.Forms.Button();
-			this.btnPhongTo = new System.Windows.Forms.Button();
+			this.btnZoonInY = new System.Windows.Forms.Button();
+			this.btnZoomOutX = new System.Windows.Forms.Button();
+			this.btnZoomInX = new System.Windows.Forms.Button();
+			this.btnZoomOut = new System.Windows.Forms.Button();
+			this.btnZoomIn = new System.Windows.Forms.Button();
 			this.btnDown = new System.Windows.Forms.Button();
 			this.btnUp = new System.Windows.Forms.Button();
-			this.menuExitAll = new System.Windows.Forms.ToolStripMenuItem();
-			this.expPlotter = new GraphDrawing.ExpressionPlotter();
 			this.contextMenuPlotter.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -89,10 +90,11 @@
 			this.lblSensitivity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblSensitivity.AutoSize = true;
 			this.lblSensitivity.BackColor = System.Drawing.Color.White;
+			this.lblSensitivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblSensitivity.ForeColor = System.Drawing.Color.Red;
 			this.lblSensitivity.Location = new System.Drawing.Point(488, 9);
 			this.lblSensitivity.Name = "lblSensitivity";
-			this.lblSensitivity.Size = new System.Drawing.Size(76, 13);
+			this.lblSensitivity.Size = new System.Drawing.Size(94, 16);
 			this.lblSensitivity.TabIndex = 24;
 			this.lblSensitivity.Text = "Độ nhạy polar:";
 			// 
@@ -110,49 +112,49 @@
 			this.contextMenuPlotter.Name = "contextMenuStrip1";
 			this.contextMenuPlotter.ShowCheckMargin = true;
 			this.contextMenuPlotter.ShowImageMargin = false;
-			this.contextMenuPlotter.Size = new System.Drawing.Size(240, 202);
+			this.contextMenuPlotter.Size = new System.Drawing.Size(240, 180);
 			// 
 			// menuCartesianMode
 			// 
 			this.menuCartesianMode.Name = "menuCartesianMode";
 			this.menuCartesianMode.Size = new System.Drawing.Size(239, 22);
 			this.menuCartesianMode.Text = "Hệ tọa độ Descartes (Cartesian)";
-			this.menuCartesianMode.Click += new System.EventHandler(this.cartesianToolStripMenuItem_Click);
+			this.menuCartesianMode.Click += new System.EventHandler(this.cartesianModeMenu_Click);
 			// 
 			// menuPolarMode
 			// 
 			this.menuPolarMode.Name = "menuPolarMode";
 			this.menuPolarMode.Size = new System.Drawing.Size(239, 22);
 			this.menuPolarMode.Text = "Hệ tọa độ cực (Polar)";
-			this.menuPolarMode.Click += new System.EventHandler(this.polarToolStripMenuItem_Click);
+			this.menuPolarMode.Click += new System.EventHandler(this.polarModeMenu_Click);
 			// 
 			// menuShowGrid
 			// 
 			this.menuShowGrid.Name = "menuShowGrid";
 			this.menuShowGrid.Size = new System.Drawing.Size(239, 22);
 			this.menuShowGrid.Text = "Hiển thị lưới";
-			this.menuShowGrid.Click += new System.EventHandler(this.ẩnHiệnKhungLướiToolStripMenuItem_Click);
+			this.menuShowGrid.Click += new System.EventHandler(this.showGridMenu_Click);
 			// 
 			// menuShowExpression
 			// 
 			this.menuShowExpression.Name = "menuShowExpression";
 			this.menuShowExpression.Size = new System.Drawing.Size(239, 22);
 			this.menuShowExpression.Text = "Hiển thị biểu thức";
-			this.menuShowExpression.Click += new System.EventHandler(this.ẩnHiệnBiểuThứcToolStripMenuItem_Click);
+			this.menuShowExpression.Click += new System.EventHandler(this.showExpMenu_Click);
 			// 
 			// menuChangeGraph
 			// 
 			this.menuChangeGraph.Name = "menuChangeGraph";
 			this.menuChangeGraph.Size = new System.Drawing.Size(239, 22);
 			this.menuChangeGraph.Text = "Thay đổi đồ thị trên màn hình";
-			this.menuChangeGraph.Click += new System.EventHandler(this.menuThayDoiDoThi_Click);
+			this.menuChangeGraph.Click += new System.EventHandler(this.ChangeGraphMenu_Click);
 			// 
 			// menuValueTable
 			// 
 			this.menuValueTable.Name = "menuValueTable";
 			this.menuValueTable.Size = new System.Drawing.Size(239, 22);
 			this.menuValueTable.Text = "Bảng giá trị";
-			this.menuValueTable.Click += new System.EventHandler(this.menuBangGiaTri_Click);
+			this.menuValueTable.Click += new System.EventHandler(this.ShowValueTableMenu_Click);
 			// 
 			// menuExit
 			// 
@@ -160,6 +162,13 @@
 			this.menuExit.Size = new System.Drawing.Size(239, 22);
 			this.menuExit.Text = "Thoát";
 			this.menuExit.Click += new System.EventHandler(this.thoátMenu_Click);
+			// 
+			// menuExitAll
+			// 
+			this.menuExitAll.Name = "menuExitAll";
+			this.menuExitAll.Size = new System.Drawing.Size(239, 22);
+			this.menuExitAll.Text = "Thoát khỏi chương trình";
+			this.menuExitAll.Click += new System.EventHandler(this.thoátHếtMenu_Click);
 			// 
 			// lblChuThich
 			// 
@@ -175,210 +184,6 @@
 			this.lblChuThich.Tag = " ";
 			this.lblChuThich.Text = "Hãy kích chuột phải để thoát";
 			this.lblChuThich.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-			// 
-			// btnGiamDoNhayPolar
-			// 
-			this.btnGiamDoNhayPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnGiamDoNhayPolar.BackColor = System.Drawing.Color.White;
-			this.btnGiamDoNhayPolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnGiamDoNhayPolar.Image = global::GraphDrawing.Properties.Resources.polarDown;
-			this.btnGiamDoNhayPolar.Location = new System.Drawing.Point(637, 378);
-			this.btnGiamDoNhayPolar.Name = "btnGiamDoNhayPolar";
-			this.btnGiamDoNhayPolar.Size = new System.Drawing.Size(36, 36);
-			this.btnGiamDoNhayPolar.TabIndex = 10;
-			this.btnGiamDoNhayPolar.UseVisualStyleBackColor = false;
-			this.btnGiamDoNhayPolar.Click += new System.EventHandler(this.btnGiamDoNhayPolar_Click);
-			this.btnGiamDoNhayPolar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnGiamDoNhayPolar_MouseMove);
-			// 
-			// btnTangDoNhayPolar
-			// 
-			this.btnTangDoNhayPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnTangDoNhayPolar.BackColor = System.Drawing.Color.White;
-			this.btnTangDoNhayPolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnTangDoNhayPolar.Image = global::GraphDrawing.Properties.Resources.polarup;
-			this.btnTangDoNhayPolar.Location = new System.Drawing.Point(637, 336);
-			this.btnTangDoNhayPolar.Name = "btnTangDoNhayPolar";
-			this.btnTangDoNhayPolar.Size = new System.Drawing.Size(36, 36);
-			this.btnTangDoNhayPolar.TabIndex = 9;
-			this.btnTangDoNhayPolar.UseVisualStyleBackColor = false;
-			this.btnTangDoNhayPolar.Click += new System.EventHandler(this.btnTangDoNhayPolar_Click);
-			this.btnTangDoNhayPolar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnTangDoNhayPolar_MouseMove);
-			// 
-			// btnLuuDoThi
-			// 
-			this.btnLuuDoThi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnLuuDoThi.BackColor = System.Drawing.Color.White;
-			this.btnLuuDoThi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnLuuDoThi.Image = global::GraphDrawing.Properties.Resources.disk;
-			this.btnLuuDoThi.Location = new System.Drawing.Point(637, 0);
-			this.btnLuuDoThi.Name = "btnLuuDoThi";
-			this.btnLuuDoThi.Size = new System.Drawing.Size(36, 36);
-			this.btnLuuDoThi.TabIndex = 1;
-			this.btnLuuDoThi.Tag = "";
-			this.btnLuuDoThi.UseVisualStyleBackColor = false;
-			this.btnLuuDoThi.Click += new System.EventHandler(this.btnLuuDoThi_Click);
-			this.btnLuuDoThi.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnLuuDoThi_MouseMove);
-			// 
-			// btnRight
-			// 
-			this.btnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnRight.BackColor = System.Drawing.Color.White;
-			this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnRight.Image = global::GraphDrawing.Properties.Resources.right;
-			this.btnRight.Location = new System.Drawing.Point(637, 508);
-			this.btnRight.Name = "btnRight";
-			this.btnRight.Size = new System.Drawing.Size(36, 36);
-			this.btnRight.TabIndex = 13;
-			this.btnRight.UseVisualStyleBackColor = false;
-			this.btnRight.Click += new System.EventHandler(this.btnSangPhai_Click);
-			this.btnRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSangPhai_MouseMove);
-			// 
-			// btnThuNhoTrucY
-			// 
-			this.btnThuNhoTrucY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnThuNhoTrucY.BackColor = System.Drawing.Color.White;
-			this.btnThuNhoTrucY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnThuNhoTrucY.Image = global::GraphDrawing.Properties.Resources.ZoomOut_Y;
-			this.btnThuNhoTrucY.Location = new System.Drawing.Point(637, 294);
-			this.btnThuNhoTrucY.Name = "btnThuNhoTrucY";
-			this.btnThuNhoTrucY.Size = new System.Drawing.Size(36, 36);
-			this.btnThuNhoTrucY.TabIndex = 8;
-			this.btnThuNhoTrucY.UseVisualStyleBackColor = false;
-			this.btnThuNhoTrucY.Click += new System.EventHandler(this.btnThuNhoTrucY_Click);
-			this.btnThuNhoTrucY.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnThuNhoTrucY_MouseMove);
-			// 
-			// btnSaoChepDoThi
-			// 
-			this.btnSaoChepDoThi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnSaoChepDoThi.BackColor = System.Drawing.Color.White;
-			this.btnSaoChepDoThi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSaoChepDoThi.Image = global::GraphDrawing.Properties.Resources.copy;
-			this.btnSaoChepDoThi.Location = new System.Drawing.Point(637, 42);
-			this.btnSaoChepDoThi.Name = "btnSaoChepDoThi";
-			this.btnSaoChepDoThi.Size = new System.Drawing.Size(36, 36);
-			this.btnSaoChepDoThi.TabIndex = 2;
-			this.btnSaoChepDoThi.UseVisualStyleBackColor = false;
-			this.btnSaoChepDoThi.Click += new System.EventHandler(this.btnSaoChepDoThi_Click);
-			this.btnSaoChepDoThi.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSaoChepDoThi_MouseMove);
-			// 
-			// btnLeft
-			// 
-			this.btnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnLeft.BackColor = System.Drawing.Color.White;
-			this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnLeft.Image = global::GraphDrawing.Properties.Resources.left;
-			this.btnLeft.Location = new System.Drawing.Point(637, 550);
-			this.btnLeft.Name = "btnLeft";
-			this.btnLeft.Size = new System.Drawing.Size(36, 36);
-			this.btnLeft.TabIndex = 14;
-			this.btnLeft.UseVisualStyleBackColor = false;
-			this.btnLeft.Click += new System.EventHandler(this.btnSangTrai_Click);
-			this.btnLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSangTrai_MouseMove);
-			// 
-			// btnPhongToTrucY
-			// 
-			this.btnPhongToTrucY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPhongToTrucY.BackColor = System.Drawing.Color.White;
-			this.btnPhongToTrucY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnPhongToTrucY.Image = global::GraphDrawing.Properties.Resources.Zoomin_Y;
-			this.btnPhongToTrucY.Location = new System.Drawing.Point(637, 252);
-			this.btnPhongToTrucY.Name = "btnPhongToTrucY";
-			this.btnPhongToTrucY.Size = new System.Drawing.Size(36, 36);
-			this.btnPhongToTrucY.TabIndex = 7;
-			this.btnPhongToTrucY.UseVisualStyleBackColor = false;
-			this.btnPhongToTrucY.Click += new System.EventHandler(this.btnPhongToTrucY_Click);
-			this.btnPhongToTrucY.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnPhongToTrucY_MouseMove);
-			// 
-			// btnThuNhoTrucX
-			// 
-			this.btnThuNhoTrucX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnThuNhoTrucX.BackColor = System.Drawing.Color.White;
-			this.btnThuNhoTrucX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnThuNhoTrucX.Image = global::GraphDrawing.Properties.Resources.ZoomOut_X;
-			this.btnThuNhoTrucX.Location = new System.Drawing.Point(637, 210);
-			this.btnThuNhoTrucX.Name = "btnThuNhoTrucX";
-			this.btnThuNhoTrucX.Size = new System.Drawing.Size(36, 36);
-			this.btnThuNhoTrucX.TabIndex = 6;
-			this.btnThuNhoTrucX.UseVisualStyleBackColor = false;
-			this.btnThuNhoTrucX.Click += new System.EventHandler(this.btnThuNhoTrucX_Click);
-			this.btnThuNhoTrucX.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnThuNhoTrucX_MouseMove);
-			// 
-			// btnPhongToTrucX
-			// 
-			this.btnPhongToTrucX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPhongToTrucX.BackColor = System.Drawing.Color.White;
-			this.btnPhongToTrucX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnPhongToTrucX.Image = global::GraphDrawing.Properties.Resources.ZoomIn_X;
-			this.btnPhongToTrucX.Location = new System.Drawing.Point(637, 168);
-			this.btnPhongToTrucX.Name = "btnPhongToTrucX";
-			this.btnPhongToTrucX.Size = new System.Drawing.Size(36, 36);
-			this.btnPhongToTrucX.TabIndex = 5;
-			this.btnPhongToTrucX.UseVisualStyleBackColor = false;
-			this.btnPhongToTrucX.Click += new System.EventHandler(this.btnPhongToTrucX_Click);
-			this.btnPhongToTrucX.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnPhongToTrucX_MouseMove);
-			// 
-			// btnThuNho
-			// 
-			this.btnThuNho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnThuNho.BackColor = System.Drawing.Color.White;
-			this.btnThuNho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnThuNho.Image = global::GraphDrawing.Properties.Resources.Zoomout;
-			this.btnThuNho.Location = new System.Drawing.Point(637, 126);
-			this.btnThuNho.Name = "btnThuNho";
-			this.btnThuNho.Size = new System.Drawing.Size(36, 36);
-			this.btnThuNho.TabIndex = 4;
-			this.btnThuNho.UseVisualStyleBackColor = false;
-			this.btnThuNho.Click += new System.EventHandler(this.btnThuNho_Click);
-			this.btnThuNho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnThuNho_MouseMove);
-			// 
-			// btnPhongTo
-			// 
-			this.btnPhongTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPhongTo.BackColor = System.Drawing.Color.White;
-			this.btnPhongTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnPhongTo.Image = global::GraphDrawing.Properties.Resources.Zoomin;
-			this.btnPhongTo.Location = new System.Drawing.Point(637, 84);
-			this.btnPhongTo.Name = "btnPhongTo";
-			this.btnPhongTo.Size = new System.Drawing.Size(36, 36);
-			this.btnPhongTo.TabIndex = 3;
-			this.btnPhongTo.UseVisualStyleBackColor = false;
-			this.btnPhongTo.Click += new System.EventHandler(this.btnPhongTo_Click);
-			this.btnPhongTo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnPhongTo_MouseMove);
-			// 
-			// btnDown
-			// 
-			this.btnDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnDown.BackColor = System.Drawing.Color.White;
-			this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnDown.Image = global::GraphDrawing.Properties.Resources.down;
-			this.btnDown.Location = new System.Drawing.Point(637, 468);
-			this.btnDown.Name = "btnDown";
-			this.btnDown.Size = new System.Drawing.Size(36, 36);
-			this.btnDown.TabIndex = 12;
-			this.btnDown.UseVisualStyleBackColor = false;
-			this.btnDown.Click += new System.EventHandler(this.btnXuongDuoi_Click);
-			this.btnDown.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnXuongDuoi_MouseMove);
-			// 
-			// btnUp
-			// 
-			this.btnUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnUp.BackColor = System.Drawing.Color.White;
-			this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnUp.Image = global::GraphDrawing.Properties.Resources.up;
-			this.btnUp.Location = new System.Drawing.Point(637, 426);
-			this.btnUp.Name = "btnUp";
-			this.btnUp.Size = new System.Drawing.Size(36, 36);
-			this.btnUp.TabIndex = 11;
-			this.btnUp.UseVisualStyleBackColor = false;
-			this.btnUp.Click += new System.EventHandler(this.btnLenTren_Click);
-			this.btnUp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnLenTren_MouseMove);
-			// 
-			// menuExitAll
-			// 
-			this.menuExitAll.Name = "menuExitAll";
-			this.menuExitAll.Size = new System.Drawing.Size(239, 22);
-			this.menuExitAll.Text = "Thoát khỏi chương trình";
-			this.menuExitAll.Click += new System.EventHandler(this.thoátHếtMenu_Click);
 			// 
 			// expPlotter
 			// 
@@ -406,24 +211,236 @@
 			this.expPlotter.Click += new System.EventHandler(this.expPlotter_Click);
 			this.expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(this.expPlotter_MouseMove);
 			// 
+			// btnDecPolar
+			// 
+			this.btnDecPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnDecPolar.BackColor = System.Drawing.Color.White;
+			this.btnDecPolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDecPolar.Image = global::GraphDrawing.Properties.Resources.polarDown;
+			this.btnDecPolar.Location = new System.Drawing.Point(639, 350);
+			this.btnDecPolar.Name = "btnDecPolar";
+			this.btnDecPolar.Size = new System.Drawing.Size(36, 36);
+			this.btnDecPolar.TabIndex = 10;
+			this.btnDecPolar.UseVisualStyleBackColor = false;
+			this.btnDecPolar.Click += new System.EventHandler(this.btnDecPolar_Click);
+			this.btnDecPolar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnDecPolar_MouseMove);
+			// 
+			// btnIncPolar
+			// 
+			this.btnIncPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnIncPolar.BackColor = System.Drawing.Color.White;
+			this.btnIncPolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnIncPolar.Image = global::GraphDrawing.Properties.Resources.polarup;
+			this.btnIncPolar.Location = new System.Drawing.Point(639, 313);
+			this.btnIncPolar.Name = "btnIncPolar";
+			this.btnIncPolar.Size = new System.Drawing.Size(36, 36);
+			this.btnIncPolar.TabIndex = 9;
+			this.btnIncPolar.UseVisualStyleBackColor = false;
+			this.btnIncPolar.Click += new System.EventHandler(this.btnIncPolar_Click);
+			this.btnIncPolar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnIncPolar_MouseMove);
+			// 
+			// btnSave
+			// 
+			this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnSave.BackColor = System.Drawing.Color.White;
+			this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSave.Image = global::GraphDrawing.Properties.Resources.disk;
+			this.btnSave.Location = new System.Drawing.Point(639, 17);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(36, 36);
+			this.btnSave.TabIndex = 1;
+			this.btnSave.Tag = "";
+			this.btnSave.UseVisualStyleBackColor = false;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.btnSave.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSave_MouseMove);
+			// 
+			// btnRight
+			// 
+			this.btnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnRight.BackColor = System.Drawing.Color.White;
+			this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnRight.Image = global::GraphDrawing.Properties.Resources.right;
+			this.btnRight.Location = new System.Drawing.Point(639, 464);
+			this.btnRight.Name = "btnRight";
+			this.btnRight.Size = new System.Drawing.Size(36, 36);
+			this.btnRight.TabIndex = 13;
+			this.btnRight.UseVisualStyleBackColor = false;
+			this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+			this.btnRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRight_MouseMove);
+			// 
+			// btnZoomOutY
+			// 
+			this.btnZoomOutY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnZoomOutY.BackColor = System.Drawing.Color.White;
+			this.btnZoomOutY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnZoomOutY.Image = global::GraphDrawing.Properties.Resources.ZoomOut_Y;
+			this.btnZoomOutY.Location = new System.Drawing.Point(639, 276);
+			this.btnZoomOutY.Name = "btnZoomOutY";
+			this.btnZoomOutY.Size = new System.Drawing.Size(36, 36);
+			this.btnZoomOutY.TabIndex = 8;
+			this.btnZoomOutY.UseVisualStyleBackColor = false;
+			this.btnZoomOutY.Click += new System.EventHandler(this.btnZoomOutY_Click);
+			this.btnZoomOutY.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnZoomOutY_MouseMove);
+			// 
+			// btnCopy
+			// 
+			this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnCopy.BackColor = System.Drawing.Color.White;
+			this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCopy.Image = global::GraphDrawing.Properties.Resources.copy;
+			this.btnCopy.Location = new System.Drawing.Point(639, 54);
+			this.btnCopy.Name = "btnCopy";
+			this.btnCopy.Size = new System.Drawing.Size(36, 36);
+			this.btnCopy.TabIndex = 2;
+			this.btnCopy.UseVisualStyleBackColor = false;
+			this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+			this.btnCopy.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCopy_MouseMove);
+			// 
+			// btnExit
+			// 
+			this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnExit.BackColor = System.Drawing.Color.White;
+			this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnExit.Image = global::GraphDrawing.Properties.Resources.exit;
+			this.btnExit.Location = new System.Drawing.Point(639, 559);
+			this.btnExit.Name = "btnExit";
+			this.btnExit.Size = new System.Drawing.Size(36, 36);
+			this.btnExit.TabIndex = 14;
+			this.btnExit.UseVisualStyleBackColor = false;
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+			this.btnExit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnExit_MouseMove);
+			// 
+			// btnLeft
+			// 
+			this.btnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnLeft.BackColor = System.Drawing.Color.White;
+			this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnLeft.Image = global::GraphDrawing.Properties.Resources.left;
+			this.btnLeft.Location = new System.Drawing.Point(639, 501);
+			this.btnLeft.Name = "btnLeft";
+			this.btnLeft.Size = new System.Drawing.Size(36, 36);
+			this.btnLeft.TabIndex = 14;
+			this.btnLeft.UseVisualStyleBackColor = false;
+			this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
+			this.btnLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnLeft_MouseMove);
+			// 
+			// btnZoonInY
+			// 
+			this.btnZoonInY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnZoonInY.BackColor = System.Drawing.Color.White;
+			this.btnZoonInY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnZoonInY.Image = global::GraphDrawing.Properties.Resources.Zoomin_Y;
+			this.btnZoonInY.Location = new System.Drawing.Point(639, 239);
+			this.btnZoonInY.Name = "btnZoonInY";
+			this.btnZoonInY.Size = new System.Drawing.Size(36, 36);
+			this.btnZoonInY.TabIndex = 7;
+			this.btnZoonInY.UseVisualStyleBackColor = false;
+			this.btnZoonInY.Click += new System.EventHandler(this.btnZoomInY_Click);
+			this.btnZoonInY.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnZoomInY_MouseMove);
+			// 
+			// btnZoomOutX
+			// 
+			this.btnZoomOutX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnZoomOutX.BackColor = System.Drawing.Color.White;
+			this.btnZoomOutX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnZoomOutX.Image = global::GraphDrawing.Properties.Resources.ZoomOut_X;
+			this.btnZoomOutX.Location = new System.Drawing.Point(639, 202);
+			this.btnZoomOutX.Name = "btnZoomOutX";
+			this.btnZoomOutX.Size = new System.Drawing.Size(36, 36);
+			this.btnZoomOutX.TabIndex = 6;
+			this.btnZoomOutX.UseVisualStyleBackColor = false;
+			this.btnZoomOutX.Click += new System.EventHandler(this.btnZoomOutX_Click);
+			this.btnZoomOutX.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnZoomOutX_MouseMove);
+			// 
+			// btnZoomInX
+			// 
+			this.btnZoomInX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnZoomInX.BackColor = System.Drawing.Color.White;
+			this.btnZoomInX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnZoomInX.Image = global::GraphDrawing.Properties.Resources.ZoomIn_X;
+			this.btnZoomInX.Location = new System.Drawing.Point(639, 165);
+			this.btnZoomInX.Name = "btnZoomInX";
+			this.btnZoomInX.Size = new System.Drawing.Size(36, 36);
+			this.btnZoomInX.TabIndex = 5;
+			this.btnZoomInX.UseVisualStyleBackColor = false;
+			this.btnZoomInX.Click += new System.EventHandler(this.btnZoomInX_Click);
+			this.btnZoomInX.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnZoomInX_MouseMove);
+			// 
+			// btnZoomOut
+			// 
+			this.btnZoomOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnZoomOut.BackColor = System.Drawing.Color.White;
+			this.btnZoomOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnZoomOut.Image = global::GraphDrawing.Properties.Resources.Zoomout;
+			this.btnZoomOut.Location = new System.Drawing.Point(639, 128);
+			this.btnZoomOut.Name = "btnZoomOut";
+			this.btnZoomOut.Size = new System.Drawing.Size(36, 36);
+			this.btnZoomOut.TabIndex = 4;
+			this.btnZoomOut.UseVisualStyleBackColor = false;
+			this.btnZoomOut.Click += new System.EventHandler(this.btnOut_Click);
+			this.btnZoomOut.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnZoomOut_MouseMove);
+			// 
+			// btnZoomIn
+			// 
+			this.btnZoomIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnZoomIn.BackColor = System.Drawing.Color.White;
+			this.btnZoomIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnZoomIn.Image = global::GraphDrawing.Properties.Resources.Zoomin;
+			this.btnZoomIn.Location = new System.Drawing.Point(639, 91);
+			this.btnZoomIn.Name = "btnZoomIn";
+			this.btnZoomIn.Size = new System.Drawing.Size(36, 36);
+			this.btnZoomIn.TabIndex = 3;
+			this.btnZoomIn.UseVisualStyleBackColor = false;
+			this.btnZoomIn.Click += new System.EventHandler(this.btnZoomIn_Click);
+			this.btnZoomIn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnZoomIn_MouseMove);
+			// 
+			// btnDown
+			// 
+			this.btnDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnDown.BackColor = System.Drawing.Color.White;
+			this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDown.Image = global::GraphDrawing.Properties.Resources.down;
+			this.btnDown.Location = new System.Drawing.Point(639, 426);
+			this.btnDown.Name = "btnDown";
+			this.btnDown.Size = new System.Drawing.Size(36, 36);
+			this.btnDown.TabIndex = 12;
+			this.btnDown.UseVisualStyleBackColor = false;
+			this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+			this.btnDown.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnDown_MouseMove);
+			// 
+			// btnUp
+			// 
+			this.btnUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnUp.BackColor = System.Drawing.Color.White;
+			this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnUp.Image = global::GraphDrawing.Properties.Resources.up;
+			this.btnUp.Location = new System.Drawing.Point(639, 388);
+			this.btnUp.Name = "btnUp";
+			this.btnUp.Size = new System.Drawing.Size(36, 36);
+			this.btnUp.TabIndex = 11;
+			this.btnUp.UseVisualStyleBackColor = false;
+			this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+			this.btnUp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnUp_MouseMove);
+			// 
 			// DoThi
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(685, 599);
-			this.Controls.Add(this.btnGiamDoNhayPolar);
-			this.Controls.Add(this.btnTangDoNhayPolar);
-			this.Controls.Add(this.btnLuuDoThi);
+			this.Controls.Add(this.btnDecPolar);
+			this.Controls.Add(this.btnIncPolar);
+			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.btnRight);
-			this.Controls.Add(this.btnThuNhoTrucY);
-			this.Controls.Add(this.btnSaoChepDoThi);
+			this.Controls.Add(this.btnZoomOutY);
+			this.Controls.Add(this.btnCopy);
 			this.Controls.Add(this.lblChuThich);
+			this.Controls.Add(this.btnExit);
 			this.Controls.Add(this.btnLeft);
-			this.Controls.Add(this.btnPhongToTrucY);
-			this.Controls.Add(this.btnThuNhoTrucX);
-			this.Controls.Add(this.btnPhongToTrucX);
-			this.Controls.Add(this.btnThuNho);
-			this.Controls.Add(this.btnPhongTo);
+			this.Controls.Add(this.btnZoonInY);
+			this.Controls.Add(this.btnZoomOutX);
+			this.Controls.Add(this.btnZoomInX);
+			this.Controls.Add(this.btnZoomOut);
+			this.Controls.Add(this.btnZoomIn);
 			this.Controls.Add(this.btnDown);
 			this.Controls.Add(this.btnUp);
 			this.Controls.Add(this.lblSensitivity);
@@ -461,19 +478,20 @@
 		private System.Windows.Forms.Button btnLeft;
 		private System.Windows.Forms.Button btnDown;
 		private System.Windows.Forms.Button btnUp;
-		private System.Windows.Forms.Button btnPhongTo;
-		private System.Windows.Forms.Button btnThuNho;
-		private System.Windows.Forms.Button btnPhongToTrucX;
-		private System.Windows.Forms.Button btnThuNhoTrucX;
-		private System.Windows.Forms.Button btnPhongToTrucY;
-		private System.Windows.Forms.Button btnThuNhoTrucY;
-		private System.Windows.Forms.Button btnSaoChepDoThi;
-		private System.Windows.Forms.Button btnLuuDoThi;
-		private System.Windows.Forms.Button btnTangDoNhayPolar;
-		private System.Windows.Forms.Button btnGiamDoNhayPolar;
+		private System.Windows.Forms.Button btnZoomIn;
+		private System.Windows.Forms.Button btnZoomOut;
+		private System.Windows.Forms.Button btnZoomInX;
+		private System.Windows.Forms.Button btnZoomOutX;
+		private System.Windows.Forms.Button btnZoonInY;
+		private System.Windows.Forms.Button btnZoomOutY;
+		private System.Windows.Forms.Button btnCopy;
+		private System.Windows.Forms.Button btnSave;
+		private System.Windows.Forms.Button btnIncPolar;
+		private System.Windows.Forms.Button btnDecPolar;
 		private System.Windows.Forms.Label lblChuThich;
 		private System.Windows.Forms.ToolStripMenuItem menuChangeGraph;
 		private System.Windows.Forms.ToolStripMenuItem menuValueTable;
 		public ExpressionPlotter expPlotter;
+		private System.Windows.Forms.Button btnExit;
 	}
 }

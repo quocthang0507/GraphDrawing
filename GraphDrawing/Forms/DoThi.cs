@@ -32,7 +32,6 @@ namespace GraphDrawing
 
 		private void DoThi_Load(object sender, EventArgs e)
 		{
-			expPlotter.MouseMove += new MouseEventHandler(expPlotter_OnMouseMove);
 			lblSensitivity.Text = "";
 			if (ExpressionHelper.Cartesian)
 			{
@@ -94,7 +93,7 @@ namespace GraphDrawing
 
 		private void thoátMenu_Click(object sender, EventArgs e)
 		{
-			Close();
+			btnExit.PerformClick();
 		}
 
 		private void thoátHếtMenu_Click(object sender, EventArgs e)
@@ -102,7 +101,12 @@ namespace GraphDrawing
 			Application.Exit();
 		}
 
-		private void cartesianToolStripMenuItem_Click(object sender, EventArgs e)
+		private void btnExit_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+
+		private void cartesianModeMenu_Click(object sender, EventArgs e)
 		{
 			menuCartesianMode.Checked = true;
 			menuPolarMode.Checked = false;
@@ -114,7 +118,7 @@ namespace GraphDrawing
 			}
 		}
 
-		private void polarToolStripMenuItem_Click(object sender, EventArgs e)
+		private void polarModeMenu_Click(object sender, EventArgs e)
 		{
 			menuCartesianMode.Checked = false;
 			menuPolarMode.Checked = true;
@@ -126,19 +130,20 @@ namespace GraphDrawing
 			}
 		}
 
-		private void ẩnHiệnKhungLướiToolStripMenuItem_Click(object sender, EventArgs e)
+		private void showGridMenu_Click(object sender, EventArgs e)
 		{
+			menuShowGrid.Checked = !menuShowGrid.Checked;
 			expPlotter.ToggleGrids();
 			expPlotter.Refresh();
 		}
 
-		private void ẩnHiệnBiểuThứcToolStripMenuItem_Click(object sender, EventArgs e)
+		private void showExpMenu_Click(object sender, EventArgs e)
 		{
 			expPlotter.DisplayText = !expPlotter.DisplayText;
 			expPlotter.Refresh();
 		}
 
-		private void btnLuuDoThi_Click(object sender, EventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
 		{
 			SaveFileDialog dialog = new SaveFileDialog
 			{
@@ -151,7 +156,7 @@ namespace GraphDrawing
 							"TIFF (*.tiff)|*.tiff|" +
 							"WMF (*.wmf)|*.wmf";
 			dialog.Filter = filter;
-			dialog.FileName = "graphimage";
+			dialog.FileName = DateTime.Now.ToString("ddMMyyhhmmss");
 			if (dialog.ShowDialog() == DialogResult.OK)
 			{
 				Bitmap bmp = expPlotter.GetGraphBitmap();
@@ -160,72 +165,72 @@ namespace GraphDrawing
 			}
 		}
 
-		private void btnSaoChepDoThi_Click(object sender, EventArgs e)
+		private void btnCopy_Click(object sender, EventArgs e)
 		{
 			expPlotter.CopyToClipboard();
 		}
 
-		private void btnPhongTo_Click(object sender, EventArgs e)
+		private void btnZoomIn_Click(object sender, EventArgs e)
 		{
 			expPlotter.ZoomIn();
 			expPlotter.Refresh();
 		}
 
-		private void btnThuNho_Click(object sender, EventArgs e)
+		private void btnOut_Click(object sender, EventArgs e)
 		{
 			expPlotter.ZoomOut();
 			expPlotter.Refresh();
 		}
 
-		private void btnPhongToTrucX_Click(object sender, EventArgs e)
+		private void btnZoomInX_Click(object sender, EventArgs e)
 		{
 			expPlotter.ZoomInX();
 			expPlotter.Refresh();
 		}
 
-		private void btnThuNhoTrucX_Click(object sender, EventArgs e)
+		private void btnZoomOutX_Click(object sender, EventArgs e)
 		{
 			expPlotter.ZoomOutX();
 			expPlotter.Refresh();
 		}
 
-		private void btnPhongToTrucY_Click(object sender, EventArgs e)
+		private void btnZoomInY_Click(object sender, EventArgs e)
 		{
 			expPlotter.ZoomInY();
 			expPlotter.Refresh();
 		}
 
-		private void btnThuNhoTrucY_Click(object sender, EventArgs e)
+		private void btnZoomOutY_Click(object sender, EventArgs e)
 		{
 			expPlotter.ZoomOutY();
 			expPlotter.Refresh();
 		}
 
-		private void btnLenTren_Click(object sender, EventArgs e)
+		private void btnUp_Click(object sender, EventArgs e)
 		{
 			expPlotter.MoveUp(1);
 			expPlotter.Refresh();
 		}
 
-		private void btnXuongDuoi_Click(object sender, EventArgs e)
+		private void btnDown_Click(object sender, EventArgs e)
 		{
 			expPlotter.MoveDown(1);
 			expPlotter.Refresh();
 		}
 
-		private void btnSangPhai_Click(object sender, EventArgs e)
+		private void btnRight_Click(object sender, EventArgs e)
 		{
 			expPlotter.MoveRight(1);
 			expPlotter.Refresh();
 		}
 
-		private void btnSangTrai_Click(object sender, EventArgs e)
+		private void btnLeft_Click(object sender, EventArgs e)
 		{
 			expPlotter.MoveLeft(1);
 			expPlotter.Refresh();
 		}
 
-		private void btnTangDoNhayPolar_Click(object sender, EventArgs e)
+		private void btnIncPolar_Click(object sender, EventArgs e)
 		{
 			if (expPlotter.GraphMode == GraphMode.Polar && expPlotter.PolarSensitivity < 500)
 			{
@@ -235,7 +240,7 @@ namespace GraphDrawing
 			}
 		}
 
-		private void btnGiamDoNhayPolar_Click(object sender, EventArgs e)
+		private void btnDecPolar_Click(object sender, EventArgs e)
 		{
 			if (expPlotter.GraphMode == GraphMode.Polar && expPlotter.PolarSensitivity > 50)
 			{
@@ -245,83 +250,88 @@ namespace GraphDrawing
 			}
 		}
 
-		private void btnLuuDoThi_MouseMove(object sender, MouseEventArgs e)
+		private void btnSave_MouseMove(object sender, MouseEventArgs e)
 		{
-			lblChuThich.Text = "Lưu đồ thị";
+			lblChuThich.Text = "Xuất đồ thị thành hình ảnh";
 		}
 
-		private void btnSaoChepDoThi_MouseMove(object sender, MouseEventArgs e)
+		private void btnCopy_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Sao chép tới clipboard";
 		}
 
-		private void btnPhongTo_MouseMove(object sender, MouseEventArgs e)
+		private void btnZoomIn_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Phóng to";
 		}
 
-		private void btnThuNho_MouseMove(object sender, MouseEventArgs e)
+		private void btnZoomOut_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Thu nhỏ";
 		}
 
-		private void btnPhongToTrucX_MouseMove(object sender, MouseEventArgs e)
+		private void btnZoomInX_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Phóng to trục X";
 		}
 
-		private void btnThuNhoTrucX_MouseMove(object sender, MouseEventArgs e)
+		private void btnZoomOutX_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Thu nhỏ trục X";
 		}
 
-		private void btnPhongToTrucY_MouseMove(object sender, MouseEventArgs e)
+		private void btnZoomInY_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Phóng to trục Y";
 		}
 
-		private void btnThuNhoTrucY_MouseMove(object sender, MouseEventArgs e)
+		private void btnZoomOutY_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Thu nhỏ trục Y";
 		}
 
-		private void btnTangDoNhayPolar_MouseMove(object sender, MouseEventArgs e)
+		private void btnIncPolar_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Tăng độ nhạy polar";
 		}
 
-		private void btnGiamDoNhayPolar_MouseMove(object sender, MouseEventArgs e)
+		private void btnDecPolar_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Giảm độ nhạy polar";
 		}
 
-		private void btnLenTren_MouseMove(object sender, MouseEventArgs e)
+		private void btnUp_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Lên trên";
 		}
 
-		private void btnXuongDuoi_MouseMove(object sender, MouseEventArgs e)
+		private void btnDown_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Xuống dưới";
 		}
 
-		private void btnSangPhai_MouseMove(object sender, MouseEventArgs e)
+		private void btnRight_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Sang phải";
 		}
 
-		private void btnSangTrai_MouseMove(object sender, MouseEventArgs e)
+		private void btnLeft_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Sang trái";
 		}
 
-		private void menuThayDoiDoThi_Click(object sender, EventArgs e)
+		private void btnExit_MouseMove(object sender, MouseEventArgs e)
+		{
+			lblChuThich.Text = "Quay về";
+		}
+
+		private void ChangeGraphMenu_Click(object sender, EventArgs e)
 		{
 			ThayDoiDoThi frm = new ThayDoiDoThi();
 			frm.ShowDialog();
 		}
 
-		private void menuBangGiaTri_Click(object sender, EventArgs e)
+		private void ShowValueTableMenu_Click(object sender, EventArgs e)
 		{
 			BangGiaTri frm = new BangGiaTri();
 			frm.ShowDialog();
@@ -329,7 +339,7 @@ namespace GraphDrawing
 
 		private void expPlotter_MouseMove(object sender, MouseEventArgs e)
 		{
-			lblChuThich.Text = "Hãy kích chuột phải để thoát";
+			lblChuThich.Text = "Hãy click chuột phải để thoát";
 		}
 
 		#endregion
