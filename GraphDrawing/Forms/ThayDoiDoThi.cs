@@ -31,14 +31,14 @@ namespace GraphDrawing
 				{
 					if (clbExpressions.CheckedIndices.Contains(i))
 					{
-						DoThi.expPlotter.SetExpressionVisibility(i, true);
+						DoThi.Instance.expPlotter.SetExpressionVisibility(i, true);
 					}
 					else
 					{
-						DoThi.expPlotter.SetExpressionVisibility(i, false);
+						DoThi.Instance.expPlotter.SetExpressionVisibility(i, false);
 					}
 				}
-				DoThi.expPlotter.Refresh();
+				DoThi.Instance.expPlotter.Refresh();
 			}
 			catch (Exception ex)
 			{

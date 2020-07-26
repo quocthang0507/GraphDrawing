@@ -53,10 +53,10 @@
 			this.cbxMode = new System.Windows.Forms.ComboBox();
 			this.nudWidthStroke = new System.Windows.Forms.NumericUpDown();
 			this.label12 = new System.Windows.Forms.Label();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.MenuFuncs = new System.Windows.Forms.ToolStripMenuItem();
-			this.MenuOprs = new System.Windows.Forms.ToolStripMenuItem();
-			this.MenuInfo = new System.Windows.Forms.ToolStripMenuItem();
+			this.mainMenu = new System.Windows.Forms.MenuStrip();
+			this.menuFuncs = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuOprs = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuInfo = new System.Windows.Forms.ToolStripMenuItem();
 			this.tácGiảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.nudStartX)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudEndX)).BeginInit();
@@ -65,7 +65,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.axisRatio)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudSensitive)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudWidthStroke)).BeginInit();
-			this.menuStrip1.SuspendLayout();
+			this.mainMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lstExpressions
@@ -427,39 +427,39 @@
 			this.label12.TabIndex = 27;
 			this.label12.Text = "Độ dày nét vẽ";
 			// 
-			// menuStrip1
+			// mainMenu
 			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuFuncs,
-            this.MenuOprs,
-            this.MenuInfo});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(477, 24);
-			this.menuStrip1.TabIndex = 29;
-			this.menuStrip1.Text = "menuStrip1";
+			this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuFuncs,
+            this.menuOprs,
+            this.menuInfo});
+			this.mainMenu.Location = new System.Drawing.Point(0, 0);
+			this.mainMenu.Name = "mainMenu";
+			this.mainMenu.Size = new System.Drawing.Size(477, 24);
+			this.mainMenu.TabIndex = 29;
+			this.mainMenu.Text = "menuStrip1";
 			// 
-			// MenuFuncs
+			// menuFuncs
 			// 
-			this.MenuFuncs.Name = "MenuFuncs";
-			this.MenuFuncs.Size = new System.Drawing.Size(91, 20);
-			this.MenuFuncs.Text = "Chèn Hàm số";
-			this.MenuFuncs.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuFuncs_DropDownItemClicked);
+			this.menuFuncs.Name = "menuFuncs";
+			this.menuFuncs.Size = new System.Drawing.Size(91, 20);
+			this.menuFuncs.Text = "Chèn Hàm số";
+			this.menuFuncs.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuFuncs_DropDownItemClicked);
 			// 
-			// MenuOprs
+			// menuOprs
 			// 
-			this.MenuOprs.Name = "MenuOprs";
-			this.MenuOprs.Size = new System.Drawing.Size(89, 20);
-			this.MenuOprs.Text = "Chèn Toán tử";
-			this.MenuOprs.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuOprs_DropDownItemClicked);
+			this.menuOprs.Name = "menuOprs";
+			this.menuOprs.Size = new System.Drawing.Size(89, 20);
+			this.menuOprs.Text = "Chèn Toán tử";
+			this.menuOprs.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuOprs_DropDownItemClicked);
 			// 
-			// MenuInfo
+			// menuInfo
 			// 
-			this.MenuInfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuInfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tácGiảToolStripMenuItem});
-			this.MenuInfo.Name = "MenuInfo";
-			this.MenuInfo.Size = new System.Drawing.Size(70, 20);
-			this.MenuInfo.Text = "Thông tin";
+			this.menuInfo.Name = "menuInfo";
+			this.menuInfo.Size = new System.Drawing.Size(70, 20);
+			this.menuInfo.Text = "Thông tin";
 			// 
 			// tácGiảToolStripMenuItem
 			// 
@@ -498,11 +498,11 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.txtExpression);
 			this.Controls.Add(this.lstExpressions);
-			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.mainMenu);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MainMenuStrip = this.menuStrip1;
+			this.MainMenuStrip = this.mainMenu;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.Name = "ThongTin";
@@ -515,8 +515,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.axisRatio)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudSensitive)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudWidthStroke)).EndInit();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
+			this.mainMenu.ResumeLayout(false);
+			this.mainMenu.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -548,10 +548,10 @@
         private System.Windows.Forms.ComboBox cbxMode;
         private System.Windows.Forms.NumericUpDown nudWidthStroke;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem MenuFuncs;
-        private System.Windows.Forms.ToolStripMenuItem MenuOprs;
-        private System.Windows.Forms.ToolStripMenuItem MenuInfo;
+        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.ToolStripMenuItem menuFuncs;
+        private System.Windows.Forms.ToolStripMenuItem menuOprs;
+        private System.Windows.Forms.ToolStripMenuItem menuInfo;
         private System.Windows.Forms.ToolStripMenuItem tácGiảToolStripMenuItem;
 
     }

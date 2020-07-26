@@ -1,149 +1,60 @@
 ﻿using GraphLibrary;
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace GraphDrawing
 {
 	public partial class DoThi : Form
 	{
-		public DoThi()
+		private static DoThi instance;
+
+		protected DoThi()
 		{
 			InitializeComponent();
 		}
 
-		#region Public Methods
-		public void AddExpression(string text, Color color)
+		public static DoThi Instance
 		{
-			expPlotter.AddExpression(new Expression(text), color, true);
-		}
-
-		public void RemoveAllExpressions()
-		{
-			expPlotter.RemoveAllExpressions();
-		}
-
-		public void SetRange(double startX, double endX, double startY, double endY)
-		{
-			expPlotter.SetRangeX(startX, endX);
-			expPlotter.SetRangeY(startY, endY);
-		}
-
-		public void SetDivisions(int divX, int divY)
-		{
-			expPlotter.DivisionsX = divX;
-			expPlotter.DivisionsY = divY;
-		}
-
-		public void SetMode(GraphMode mode, int sensitivity)
-		{
-			expPlotter.GraphMode = mode;
-			if (mode == GraphMode.Polar)
+			get
 			{
-				expPlotter.PolarSensitivity = sensitivity;
-				lblSensitivity.Text = "Polar sensitivity: " + expPlotter.PolarSensitivity;
-			}
-		}
-
-		public void SetPenWidth(int width)
-		{
-			expPlotter.PenWidth = width;
-		}
-
-		#endregion
-
-		#region Private Methods
-
-		private double GetR(double X, double Y)
-		{
-			return Math.Sqrt(X * X + Y * Y);
-		}
-
-		private double GetTheta(double X, double Y)
-		{
-			double dTheta;
-			if (X == 0)
-			{
-				if (Y > 0)
+				if (instance == null || instance.IsDisposed)
 				{
-					dTheta = Math.PI / 2;
+					instance = new DoThi();
 				}
-				else
-				{
-					dTheta = -Math.PI / 2;
-				}
-			}
-			else
-			{
-				dTheta = Math.Atan(Y / X);
-			}
 
-			//actual range of theta is from 0 to 2PI
-			if (X < 0)
-			{
-				dTheta = dTheta + Math.PI;
+				return instance;
 			}
-			else if (Y < 0)
-			{
-				dTheta = dTheta + 2 * Math.PI;
-			}
-
-			return dTheta;
 		}
 
-		private System.Drawing.Imaging.ImageFormat GetImageFormat(string filename)
+		#region Events
+
+		private void DoThi_Load(object sender, EventArgs e)
 		{
-			string[] tempArray = filename.Split('.');
-			string extension = tempArray[tempArray.Length - 1];
-			switch (extension)
-			{
-				case "bmp":
-					return System.Drawing.Imaging.ImageFormat.Bmp;
-				case "jpg":
-					return System.Drawing.Imaging.ImageFormat.Jpeg;
-				case "gif":
-					return System.Drawing.Imaging.ImageFormat.Gif;
-				case "png":
-					return System.Drawing.Imaging.ImageFormat.Png;
-				case "tiff":
-					return System.Drawing.Imaging.ImageFormat.Tiff;
-				case "wmf":
-					return System.Drawing.Imaging.ImageFormat.Wmf;
-				default:
-					return System.Drawing.Imaging.ImageFormat.Bmp;
-			}
-
-		}
-
-		#endregion
-
-		#region Event Handlers
-
-		private void Graph_Load(object sender, EventArgs e)
-		{
-			expPlotter.MouseMove += new MouseEventHandler(ExpPlotter_OnMouseMove);
+			expPlotter.MouseMove += new MouseEventHandler(expPlotter_OnMouseMove);
 			lblSensitivity.Text = "";
-			if (ExpressionHelper.Cartesian == true)
+			if (ExpressionHelper.Cartesian)
 			{
-				cartesianToolStripMenuItem.Checked = true;
-				polarToolStripMenuItem.Checked = false;
+				menuCartesianMode.Checked = true;
+				menuPolarMode.Checked = false;
 			}
 			else
 			{
-				polarToolStripMenuItem.Checked = true;
-				cartesianToolStripMenuItem.Checked = false;
+				menuPolarMode.Checked = true;
+				menuCartesianMode.Checked = false;
 			}
 		}
 
-		private void ExpPlotter_OnMouseMove(object sender, MouseEventArgs e)
+		private void expPlotter_OnMouseMove(object sender, MouseEventArgs e)
 		{
 			double currentX, currentY;
 			currentX = (e.X - expPlotter.Width / 2) * expPlotter.ScaleX / expPlotter.Width * 2.25 + expPlotter.ForwardX;
 			currentY = (expPlotter.Width / 2 - e.Y) * expPlotter.ScaleY / expPlotter.Width * 2.25 + expPlotter.ForwardY;
 			if (expPlotter.GraphMode == GraphMode.Polar)
 			{
-				double r = GetR(currentX, currentY);
-				double theta = GetTheta(currentX, currentY);
+				double r = Expression.GetR(currentX, currentY);
+				double theta = Expression.GetTheta(currentX, currentY);
 				currentX = r;
 				currentY = theta;
 			}
@@ -171,33 +82,30 @@ namespace GraphDrawing
 			expPlotter.Refresh();
 		}
 
-		private void Graph_Resize(object sender, EventArgs e)
+		private void DoThi_Resize(object sender, EventArgs e)
 		{
 			expPlotter.Refresh();
 		}
-
 
 		private void expPlotter_Click(object sender, EventArgs e)
 		{
 			expPlotter.Select();
 		}
 
-		#endregion
-
-		private void lstExpressions_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void thoátToolStripMenuItem1_Click(object sender, EventArgs e)
+		private void thoátMenu_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
 
+		private void thoátHếtMenu_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
 		private void cartesianToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			cartesianToolStripMenuItem.Checked = true;
-			polarToolStripMenuItem.Checked = false;
+			menuCartesianMode.Checked = true;
+			menuPolarMode.Checked = false;
 			if (expPlotter.GraphMode != GraphMode.Rectangular)
 			{
 				lblSensitivity.Text = "";
@@ -208,8 +116,8 @@ namespace GraphDrawing
 
 		private void polarToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			cartesianToolStripMenuItem.Checked = false;
-			polarToolStripMenuItem.Checked = true;
+			menuCartesianMode.Checked = false;
+			menuPolarMode.Checked = true;
 			if (expPlotter.GraphMode != GraphMode.Polar)
 			{
 				lblSensitivity.Text = "Độ nhạy polar: " + expPlotter.PolarSensitivity;
@@ -234,7 +142,7 @@ namespace GraphDrawing
 		{
 			SaveFileDialog dialog = new SaveFileDialog
 			{
-				Title = "Luu do thi"
+				Title = "Lưu đồ thị thành hình ảnh"
 			};
 			string filter = "Bitmap (*.bmp)|*.bmp|" +
 							"JPEG (*.jpg)|*.jpg|" +
@@ -243,12 +151,12 @@ namespace GraphDrawing
 							"TIFF (*.tiff)|*.tiff|" +
 							"WMF (*.wmf)|*.wmf";
 			dialog.Filter = filter;
-			dialog.FileName = "do thi";
+			dialog.FileName = "graphimage";
 			if (dialog.ShowDialog() == DialogResult.OK)
 			{
 				Bitmap bmp = expPlotter.GetGraphBitmap();
 				bmp.Save(dialog.FileName, GetImageFormat(dialog.FileName));
-				MessageBox.Show("Đồ thị đã được lưu thành công tại địa chỉ " + dialog.FileName, "Đã lưu");
+				MessageBox.Show("Đồ thị đã được lưu thành công tại địa chỉ " + dialog.FileName, "Đã lưu", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 
@@ -337,8 +245,6 @@ namespace GraphDrawing
 			}
 		}
 
-
-
 		private void btnLuuDoThi_MouseMove(object sender, MouseEventArgs e)
 		{
 			lblChuThich.Text = "Lưu đồ thị";
@@ -409,22 +315,91 @@ namespace GraphDrawing
 			lblChuThich.Text = "Sang trái";
 		}
 
-		private void expPlotter_MouseMove(object sender, MouseEventArgs e)
-		{
-			lblChuThich.Text = "Hãy kích chuột phải để thoát";
-		}
-
-		private void mniThemBotBieuThuc_Click(object sender, EventArgs e)
+		private void menuThayDoiDoThi_Click(object sender, EventArgs e)
 		{
 			ThayDoiDoThi frm = new ThayDoiDoThi();
 			frm.ShowDialog();
 		}
 
-		private void mniThongTinDoThi_Click(object sender, EventArgs e)
+		private void menuBangGiaTri_Click(object sender, EventArgs e)
 		{
 			BangGiaTri frm = new BangGiaTri();
 			frm.ShowDialog();
 		}
+
+		private void expPlotter_MouseMove(object sender, MouseEventArgs e)
+		{
+			lblChuThich.Text = "Hãy kích chuột phải để thoát";
+		}
+
+		#endregion
+
+		#region Private Methods
+
+		private ImageFormat GetImageFormat(string filename)
+		{
+			string[] tempArray = filename.Split('.');
+			string extension = tempArray[tempArray.Length - 1];
+			switch (extension)
+			{
+				case "bmp":
+					return ImageFormat.Bmp;
+				case "jpg":
+					return ImageFormat.Jpeg;
+				case "gif":
+					return ImageFormat.Gif;
+				case "png":
+					return ImageFormat.Png;
+				case "tiff":
+					return ImageFormat.Tiff;
+				case "wmf":
+					return ImageFormat.Wmf;
+				default:
+					return ImageFormat.Bmp;
+			}
+		}
+
+		#endregion
+
+		#region Public Methods
+		public void AddExpression(string text, Color color)
+		{
+			expPlotter.AddExpression(new Expression(text), color, true);
+		}
+
+		public void RemoveAllExpressions()
+		{
+			expPlotter.RemoveAllExpressions();
+		}
+
+		public void SetRange(double startX, double endX, double startY, double endY)
+		{
+			expPlotter.SetRangeX(startX, endX);
+			expPlotter.SetRangeY(startY, endY);
+		}
+
+		public void SetDivisions(int divX, int divY)
+		{
+			expPlotter.DivisionsX = divX;
+			expPlotter.DivisionsY = divY;
+		}
+
+		public void SetMode(GraphMode mode, int sensitivity)
+		{
+			expPlotter.GraphMode = mode;
+			if (mode == GraphMode.Polar)
+			{
+				expPlotter.PolarSensitivity = sensitivity;
+				lblSensitivity.Text = "Polar sensitivity: " + expPlotter.PolarSensitivity;
+			}
+		}
+
+		public void SetPenWidth(int width)
+		{
+			expPlotter.PenWidth = width;
+		}
+
+		#endregion
 
 	}
 }

@@ -190,225 +190,225 @@ namespace GraphLibrary
 		}
 
 		/// <summary>
-		/// This function contains definitions for supported functions,we can add more also
+		/// This function contains definitions for supported functions, we can add more also
 		/// </summary>
-		/// <param name="dOperand"></param>
-		/// <param name="strOperator"></param>
+		/// <param name="operand"></param>
+		/// <param name="operator"></param>
 		/// <returns></returns>
-		private static double DoAngleOperation(double dOperand, string strOperator)
+		private static double DoAngleOperation(double operand, string @operator)
 		{
 			const double pi = 3.1415926535897932384626433832795;
-			strOperator = strOperator.ToLower();
-			switch (strOperator)
+			@operator = @operator.ToLower();
+			switch (@operator)
 			{
 				case "abs":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Abs(dOperand);
+						return Math.Abs(operand);
 					}
 					else
 					{
-						return Math.Abs(dOperand * pi / 180);
+						return Math.Abs(operand * pi / 180);
 					}
 
 				case "sin":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Sin(dOperand);
+						return Math.Sin(operand);
 					}
 					else
 					{
-						return Math.Sin(dOperand * pi / 180);
+						return Math.Sin(operand * pi / 180);
 					}
 
 				case "cos":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Cos(dOperand);
+						return Math.Cos(operand);
 					}
 					else
 					{
-						return Math.Cos(dOperand * pi / 180);
+						return Math.Cos(operand * pi / 180);
 					}
 
 				case "tan":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Tan(dOperand);
+						return Math.Tan(operand);
 					}
 					else
 					{
-						return Math.Tan(dOperand * pi / 180);
+						return Math.Tan(operand * pi / 180);
 					}
 
 				case "sec":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return 1.0 / Math.Cos(dOperand);
+						return 1.0 / Math.Cos(operand);
 					}
 					else
 					{
-						return 1.0 / Math.Cos(dOperand * pi / 180);
+						return 1.0 / Math.Cos(operand * pi / 180);
 					}
 
 				case "cosec":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return 1.0 / Math.Sin(dOperand);
+						return 1.0 / Math.Sin(operand);
 					}
 					else
 					{
-						return 1.0 / Math.Sin(dOperand * pi / 180);
+						return 1.0 / Math.Sin(operand * pi / 180);
 					}
 
 				case "cot":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return 1.0 / Math.Tan(dOperand);
+						return 1.0 / Math.Tan(operand);
 					}
 					else
 					{
-						return 1.0 / Math.Tan(dOperand * pi / 180);
+						return 1.0 / Math.Tan(operand * pi / 180);
 					}
 
 				case "arcsin":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Asin(dOperand);
+						return Math.Asin(operand);
 					}
 					else
 					{
-						return Math.Asin(dOperand * pi / 180);
+						return Math.Asin(operand * pi / 180);
 					}
 
 				case "arccos":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Acos(dOperand);
+						return Math.Acos(operand);
 					}
 					else
 					{
-						return Math.Acos(dOperand * pi / 180);
+						return Math.Acos(operand * pi / 180);
 					}
 
 				case "arctan":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Atan(dOperand);
+						return Math.Atan(operand);
 					}
 					else
 					{
-						return Math.Atan(dOperand * pi / 180);
+						return Math.Atan(operand * pi / 180);
 					}
 
 				case "exp":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Exp(dOperand);
+						return Math.Exp(operand);
 					}
 					else
 					{
-						return Math.Exp(dOperand * pi / 180);
+						return Math.Exp(operand * pi / 180);
 					}
 
 				case "ln":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Log(dOperand);
+						return Math.Log(operand);
 					}
 					else
 					{
-						return Math.Log(dOperand * pi / 180);
+						return Math.Log(operand * pi / 180);
 					}
 
 				case "log":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Log10(dOperand);
+						return Math.Log10(operand);
 					}
 					else
 					{
-						return Math.Log10(dOperand * pi / 180);
+						return Math.Log10(operand * pi / 180);
 					}
 
 				case "antilog":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Pow(10, dOperand);
+						return Math.Pow(10, operand);
 					}
 					else
 					{
-						return Math.Pow(10, dOperand) * pi / 180;
+						return Math.Pow(10, operand) * pi / 180;
 					}
 
 				case "sqrt":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Sqrt(dOperand);
+						return Math.Sqrt(operand);
 					}
 					else
 					{
-						return Math.Sqrt(dOperand * pi / 180);
+						return Math.Sqrt(operand * pi / 180);
 					}
 
 				case "sinh":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Sinh(dOperand);
+						return Math.Sinh(operand);
 					}
 					else
 					{
-						return Math.Sinh(dOperand * pi / 180);
+						return Math.Sinh(operand * pi / 180);
 					}
 
 				case "cosh":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Cosh(dOperand);
+						return Math.Cosh(operand);
 					}
 					else
 					{
-						return Math.Cosh(dOperand * pi / 180);
+						return Math.Cosh(operand * pi / 180);
 					}
 
 				case "tanh":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Tanh(dOperand);
+						return Math.Tanh(operand);
 					}
 					else
 					{
-						return Math.Tanh(dOperand * pi / 180);
+						return Math.Tanh(operand * pi / 180);
 					}
 
 				case "arcsinh":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Log(dOperand + Math.Sqrt(dOperand * dOperand + 1));
+						return Math.Log(operand + Math.Sqrt(operand * operand + 1));
 					}
 					else
 					{
-						return Math.Log(dOperand + Math.Sqrt((dOperand * dOperand + 1) * pi / 180));
+						return Math.Log(operand + Math.Sqrt((operand * operand + 1) * pi / 180));
 					}
 
 				case "arccosh":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Log(dOperand + Math.Sqrt(dOperand * dOperand - 1));
+						return Math.Log(operand + Math.Sqrt(operand * operand - 1));
 					}
 					else
 					{
-						return Math.Log(dOperand + Math.Sqrt((dOperand * dOperand - 1) * pi / 180));
+						return Math.Log(operand + Math.Sqrt((operand * operand - 1) * pi / 180));
 					}
 
 				case "arctanh":
 					if (ExpressionHelper.BlnRadian)
 					{
-						return Math.Log((1 + dOperand) / (1 - dOperand)) / 2;
+						return Math.Log((1 + operand) / (1 - operand)) / 2;
 					}
 					else
 					{
-						return Math.Log(((1 + dOperand) / (1 - dOperand)) * pi / 180) / 2;
+						return Math.Log(((1 + operand) / (1 - operand)) * pi / 180) / 2;
 					}
 
 				default:
@@ -416,22 +416,22 @@ namespace GraphLibrary
 			}
 		}
 
-		private static double DoOperation(double dOperand1, double dOperand2, char chOperator)
+		private static double DoOperation(double operand1, double operand2, char @operator)
 		{
-			switch (chOperator)
+			switch (@operator)
 			{
 				case '+':
-					return dOperand1 + dOperand2;
+					return operand1 + operand2;
 				case '-':
-					return dOperand1 - dOperand2;
+					return operand1 - operand2;
 				case '*':
-					return dOperand1 * dOperand2;
+					return operand1 * operand2;
 				case '/':
-					return dOperand1 / dOperand2;
+					return operand1 / operand2;
 				case '^':
-					return Math.Pow(dOperand1, dOperand2);
+					return Math.Pow(operand1, operand2);
 				case '%':
-					return dOperand1 % dOperand2;
+					return operand1 % operand2;
 				default:
 					return double.NaN;
 			}
@@ -444,156 +444,156 @@ namespace GraphLibrary
 		/// <returns></returns>
 		private string InsertPrecedenceBrackets()
 		{
-			int iBrackets = 0;
-			bool bReplace = false;
-			int iLengthExpression;
-			string strExpression = textInternal;
+			int nBrackets = 0;
+			bool isReplace = false;
+			int lenExpression;
+			string expression = textInternal;
 
 			//Precedence for * && /
 			int i = 1;
-			iLengthExpression = strExpression.Length;
+			lenExpression = expression.Length;
 			int j;
-			while (i <= iLengthExpression)
+			while (i <= lenExpression)
 			{
-				if (strExpression.Substring(-1 + i, 1) == "*" || strExpression.Substring(-1 + i, 1) == "/")
+				if (expression.Substring(-1 + i, 1) == "*" || expression.Substring(-1 + i, 1) == "/")
 				{
 					for (j = i - 1; j > 0; j--)
 					{
-						if (strExpression.Substring(-1 + j, 1) == ")")
+						if (expression.Substring(-1 + j, 1) == ")")
 						{
-							iBrackets++;
+							nBrackets++;
 						}
 
-						if (strExpression.Substring(-1 + j, 1) == "(")
+						if (expression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets--;
+							nBrackets--;
 						}
 
-						if (iBrackets < 0)
+						if (nBrackets < 0)
 						{
 							break;
 						}
 
-						if (iBrackets == 0)
+						if (nBrackets == 0)
 						{
-							if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-")
+							if (expression.Substring(-1 + j, 1) == "+" || expression.Substring(-1 + j, 1) == "-")
 							{
-								strExpression = strExpression.Substring(0, j) + "(" + strExpression.Substring(j);
-								bReplace = true;
+								expression = expression.Substring(0, j) + "(" + expression.Substring(j);
+								isReplace = true;
 								i++;
 								break;
 							}
 						}
 					}
-					iBrackets = 0;
+					nBrackets = 0;
 					j = i;
 					i++;
-					while (bReplace)
+					while (isReplace)
 					{
 						j++;
-						if (strExpression.Substring(-1 + j, 1) == "(")
+						if (expression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets++;
+							nBrackets++;
 						}
 
-						if (strExpression.Substring(-1 + j, 1) == ")")
+						if (expression.Substring(-1 + j, 1) == ")")
 						{
-							if (iBrackets == 0)
+							if (nBrackets == 0)
 							{
-								strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
-								bReplace = false;
+								expression = expression.Substring(0, j - 1) + ")" + expression.Substring(-1 + j);
+								isReplace = false;
 								i++;
 								break;
 							}
 							else
 							{
-								iBrackets--;
+								nBrackets--;
 							}
 						}
-						if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-")
+						if (expression.Substring(-1 + j, 1) == "+" || expression.Substring(-1 + j, 1) == "-")
 						{
-							strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
-							bReplace = false;
+							expression = expression.Substring(0, j - 1) + ")" + expression.Substring(-1 + j);
+							isReplace = false;
 							i++;
 							break;
 						}
 					}
 				}
-				iLengthExpression = strExpression.Length;
+				lenExpression = expression.Length;
 				i++;
 			}
 
 			//Precedence for ^ && %
 			i = 1;
-			iLengthExpression = strExpression.Length;
-			while (i <= iLengthExpression)
+			lenExpression = expression.Length;
+			while (i <= lenExpression)
 			{
-				if (strExpression.Substring(-1 + i, 1) == "^" || strExpression.Substring(-1 + i, 1) == "%")
+				if (expression.Substring(-1 + i, 1) == "^" || expression.Substring(-1 + i, 1) == "%")
 				{
 					for (j = i - 1; j > 0; j--)
 					{
-						if (strExpression.Substring(-1 + j, 1) == ")")
+						if (expression.Substring(-1 + j, 1) == ")")
 						{
-							iBrackets++;
+							nBrackets++;
 						}
-						else if (strExpression.Substring(-1 + j, 1) == "(")
+						else if (expression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets--;
+							nBrackets--;
 						}
 
-						if (iBrackets < 0)
+						if (nBrackets < 0)
 						{
 							break;
 						}
-						else if (iBrackets == 0)
+						else if (nBrackets == 0)
 						{
-							if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-" || strExpression.Substring(-1 + j, 1) == "*" || strExpression.Substring(-1 + j, 1) == "/")
+							if (expression.Substring(-1 + j, 1) == "+" || expression.Substring(-1 + j, 1) == "-" || expression.Substring(-1 + j, 1) == "*" || expression.Substring(-1 + j, 1) == "/")
 							{
-								strExpression = strExpression.Substring(0, j) + "(" + strExpression.Substring(j);
-								bReplace = true;
+								expression = expression.Substring(0, j) + "(" + expression.Substring(j);
+								isReplace = true;
 								i++;
 								break;
 							}
 						}
 					}
-					iBrackets = 0;
+					nBrackets = 0;
 					j = i;
 					i++;
-					while (bReplace)
+					while (isReplace)
 					{
 						j++;
-						if (strExpression.Substring(-1 + j, 1) == "(")
+						if (expression.Substring(-1 + j, 1) == "(")
 						{
-							iBrackets++;
+							nBrackets++;
 						}
 
-						if (strExpression.Substring(-1 + j, 1) == ")")
+						if (expression.Substring(-1 + j, 1) == ")")
 						{
-							if (iBrackets == 0)
+							if (nBrackets == 0)
 							{
-								strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
-								bReplace = false;
+								expression = expression.Substring(0, j - 1) + ")" + expression.Substring(-1 + j);
+								isReplace = false;
 								i++;
 								break;
 							}
 							else
 							{
-								iBrackets -= 1;
+								nBrackets -= 1;
 							}
 						}
-						if (strExpression.Substring(-1 + j, 1) == "+" || strExpression.Substring(-1 + j, 1) == "-" || strExpression.Substring(-1 + j, 1) == "*" || strExpression.Substring(-1 + j, 1) == "/")
+						if (expression.Substring(-1 + j, 1) == "+" || expression.Substring(-1 + j, 1) == "-" || expression.Substring(-1 + j, 1) == "*" || expression.Substring(-1 + j, 1) == "/")
 						{
-							strExpression = strExpression.Substring(0, j - 1) + ")" + strExpression.Substring(-1 + j);
-							bReplace = false;
+							expression = expression.Substring(0, j - 1) + ")" + expression.Substring(-1 + j);
+							isReplace = false;
 							i++;
 							break;
 						}
 					}
 				}
-				iLengthExpression = strExpression.Length;
+				lenExpression = expression.Length;
 				i++;
 			}
-			return strExpression;
+			return expression;
 		}
 	}
 }

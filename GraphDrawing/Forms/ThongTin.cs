@@ -92,7 +92,7 @@ namespace GraphDrawing
 
 		private void btnDraw_Click(object sender, EventArgs e)
 		{
-			if (cbxMode.SelectedIndex == 1)
+			if (cbxMode.SelectedIndex == 0)
 			{
 				ExpressionHelper.Cartesian = true;
 				ExpressionHelper.Polar = false;
@@ -106,7 +106,7 @@ namespace GraphDrawing
 			ExpressionHelper.XEndValue = Convert.ToDouble(nudEndX.Value);
 			if (form == null || form.IsDisposed)
 			{
-				form = new DoThi();
+				form = DoThi.Instance;
 				form.Show();
 			}
 			form.SetRange((double)nudStartX.Value, (double)nudEndX.Value, (double)nudStartY.Value, (double)nudEndY.Value);
@@ -134,13 +134,13 @@ namespace GraphDrawing
 
 		private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (cbxMode.SelectedIndex == 1)
+			if (cbxMode.SelectedIndex == 0)
 			{
-				nudSensitive.Enabled = true;
+				nudSensitive.Enabled = false;
 			}
 			else
 			{
-				nudSensitive.Enabled = false;
+				nudSensitive.Enabled = true;
 			}
 		}
 
@@ -217,7 +217,7 @@ namespace GraphDrawing
 		{
 			foreach (char opr in oprsArray)
 			{
-				MenuOprs.DropDownItems.Add("" + opr);
+				menuOprs.DropDownItems.Add("" + opr);
 			}
 		}
 
@@ -228,7 +228,7 @@ namespace GraphDrawing
 		{
 			foreach (string item in Enum.GetNames(typeof(EnumFuncs)))
 			{
-				MenuFuncs.DropDownItems.Add(item);
+				menuFuncs.DropDownItems.Add(item);
 			}
 		}
 
